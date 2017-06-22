@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
     <article id="main">
@@ -10,8 +11,12 @@ layout: default
 
   <section class="style4 wrapper container">
     {{ content }}
+
+    {% if site.disqus.shortname %}
+      {% include disqus_comments.html %}
+    {% endif %}
   </section>
-    
+
     <footer>
         {% if page.previous %}
         <a href="{{ page.previous.url }}" class="post-prev">&larr; Previous post</a> {% endif %}
@@ -19,4 +24,3 @@ layout: default
         <a href="{{ page.next.url }}" class="post-next">Next post &rarr;</a> {% endif %}
     </footer>
 </article>
-

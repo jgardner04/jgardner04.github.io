@@ -8,5 +8,9 @@ url: "http://locahost:4000" # the base hostname & protocol for your site
 twitter_username: jgardner04
 github_username:  jgardner04
 
+# Disqus Comments
+disqus:
+  shortname: beyondthecorneroffice
+
 # Build settings
 markdown: kramdown
