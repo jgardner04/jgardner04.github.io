@@ -1,1 +1,12 @@
-theme: jekyll-theme-cayman
+# Site settings
+title: Beyond the Corner Office
+email: jonathan@beyondthecorneroffice.com
+description: > # this means to ignore newlines until "baseurl:"
+  Technology musings from Beyond the Corner Office. A Jonathan Gardner blog where all things cloud are discussed.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://locahost:4000" # the base hostname & protocol for your site
+twitter_username: jgardner04
+github_username:  jgardner04
+
+# Build settings
+markdown: kramdown
