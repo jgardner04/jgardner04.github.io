@@ -8,9 +8,9 @@
 -->
 
 <head>
-    <title>Twenty Blog</title>
+    <title>Beyond the Corner Office</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <meta name="description" content="Technology musings from Beyond the Corner Office. A Jonathan Gardner blog where all things cloud are discussed.
 ">
     <meta name="keywords" content="" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
@@ -32,6 +32,18 @@
     <meta name="viewport" content="width=device-width">
 
     <link rel="canonical" href="http://0.0.0.0:4000/no-sidebar.html">
+
+    <!-- Application Insights -->
+    <script type="text/javascript">
+    var appInsights=window.appInsights||function(config){
+        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+    }({
+        instrumentationKey: "46f6a2ab-4acc-49ca-8831-2a63b5b4f2f9"
+    });
+
+    window.appInsights = appInsights;
+    appInsights.trackPageView();
+    </script>
 </head>
 
 
@@ -42,7 +54,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="/blog.html">Blog</a></li>
-						<li><a href="http://www.jonathanagardner.com">Photography</a></li>
+						<li><a href="http://www.jonathanagardner.com" target="_blank">Photography</a></li>
 						<li><a href="/about.html">About</a>
 						<!-- <li class="submenu">
 							<a href="">About</a>
