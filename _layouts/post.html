@@ -11,6 +11,10 @@ comments: true
 
   <section class="style4 wrapper container">
     {{ content }}
+
+    {% if site.disqus.shortname %}
+      {% include disqus_comments.html %}
+    {% endif %}
   </section>
 
     <footer>
@@ -20,7 +24,3 @@ comments: true
         <a href="{{ page.next.url }}" class="post-next">Next post &rarr;</a> {% endif %}
     </footer>
 </article>
-
-{% if site.disqus.shortname %}
-  {% include disqus_comments.html %}
-{% endif %}
