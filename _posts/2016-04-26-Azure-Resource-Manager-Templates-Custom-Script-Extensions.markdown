@@ -6,12 +6,14 @@ comments: true
 categories: Azure
 tags: azure
 ---
+<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_99956429-1600.jpeg" alt=""></span>
+
 In my previous article, Building Azure Resource Manager Templates , I covered how to get started with Azure Resource Manager templates.  While they are certainly great for basic deployments, where they really shine is in their ability to allow for complex deployments.  This post will cover the Custom Script Extension and how they can be used to configure Virtual Machines during the deployment process. ***Note: This article makes the assumption that you are familiar with the Azure portal and Visual Studio.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.***
 
 # The Setup
 When I was working on my ARM Template to deploy [SQL Server 2016 with the AdventureWorks sample databases installed](https://github.com/jgardner04/ARM-Templates/tree/master/Sql2016Ctp3Demo), I needed a way to configure the virtual machine once it was installed.  This is done using the Custom Script for Windows Extension.  It is dependent upon the creation of the virtual machine, as can be seen from the image below and requires that the virtual machine be created before adding the extension.
 
-![Custom Script Extension](//btco.azureedge.net/gallery-800/customscriptextension.png)
+![Custom Script Extension](//btco.azureedge.net/gallery-800/customscriptextension-800.png)
 
 # The Business
 After adding the Custom Script Extension, a resource is added to the virtual machine in the ARM template with they type "extensions".  The code can be seen below.  It shows up as nested in the JSON Outline window.  It also creates a customScripts folder in the solution.  In the case of a Windows extension this file is a PowerShell or .ps1 file.
