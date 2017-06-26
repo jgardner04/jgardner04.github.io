@@ -32,7 +32,7 @@ Before creating the Runbook, we will create some assets to call in it.  The firs
 ## The Runbook
 With my assets created, I create a PowerShell Workflow Runbook with the following code.
 
-{% highlight posh linenos %}
+```powershell
     workflow Execute-SQL { param( [parameter(Manditory=$true)] [string] $SqlServer,&amp;lt;/code&amp;gt;
 
     [parameter(Manditory=$false)] [int] $SqlServerPort = 1433,
@@ -42,8 +42,8 @@ With my assets created, I create a PowerShell Workflow Runbook with the followin
     $SqlUsername = $SqlCredential.UserName $SqlPassword = $SqlCredential.GetNetworkCredential().Password
 
     inlinescript{ $Connection = New-Object System.Data.SqlClient.SqlConnection(&amp;quot;Server=tcp:$using:SqlServer,$using:SqlServerPort;Database=$using:Database;User ID=$using:SqlUsername;Password=$using:SqlPass;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;&amp;quot;) $Connection.Open() $Cmd=New-Object System.Data.SqlClient.SqlCommand(&amp;quot;EXECUTE usp_MyStoredProcedure&amp;quot;, $Connection) $Cmd.CommandTimeout=120 $DataSet=New-Object System.Data.DataSet $DataAdapter=New-Object System.Data.SqlClient.SqlDataAdapter($Cmd) [void]$DataAdapter.fill($DataSet) $Connection.Close() } }
-{% endhighlight %}
-
+```
+<br />
 While you can create the workflow yourself. You do not necessarily need to create it from scratch.  There is a gallery with hundreds of community driven templates to get you started.  To create a Runbook from the gallery, simply hit the gallery button shown below.
 
 ![Runbooks](//btco.azureedge.net/gallery/runbooks.png)

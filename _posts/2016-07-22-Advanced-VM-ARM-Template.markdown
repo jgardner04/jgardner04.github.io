@@ -15,18 +15,19 @@ Tl;dr - Grab the template from my [GitHub account](//github.com/jgardner04/ARM-T
 ## Creating Multiple Resources
 The power of ARM templates is the ability to create complex environments from a single definition file.  Part of that power comes in the ability to create multiple resources of the same type.  This happens through the use of the copy tag when defining a resource.
 
+
 {% highlight json %}
+
 copy:{ "name": "storagecopy", "count": "[parameters('count')]" }
 
 {% endhighlight %}
-
+<br />
 Access to the current iteration can be done through the use of the copyIndex() function.  This provides the flexibility append it to names creating a unique name for each iteration.  An example of this can be seen in the "name": example below.
 
 {% highlight json %}
 "name": "[concat(variables('storageAccountName'),copyIndex())]"
 {% endhighlight %}
-
-
+<br />
 ## Virtual Machines from a Custom Image
 
 Before we dive into the template it is important to note, at time of writing this, the virtual machine custom image must be in the same storage account as the .vhd that will be deployed with the new Virtual Machines.  It is for this reason that this template creates a "Transfer VM" with a custom script extension.  This script uses PowerShell and [AZCopy](//docs.microsoft.com/en-us/azure/storage/storage-use-azcopy) to move the image from one storage account to the target storage account.  The gold image can be removed after the VMs are deployed without any issue.  The Transfer VM can also be removed.  This could also be scripted but is not included in the current version of the template.  If you want to take a deeper look at creating a VM in this transfer model you can check out the quick start template on [GitHub](//github.com/Azure/azure-quickstart-templates/tree/master/201-vm-custom-image-new-storage-account).
@@ -40,7 +41,7 @@ The domain join function is performed by a new extension.  Previously it needed 
 ## The Business
 Now, down to the code.  I know that is what everyone cares to see anyway.  If you want to download directly or make changes/comments, please do so through [GitHub](//github.com/jgardner04/ARM-Templates).
 
-{% highlight json linenos %}
+{% highlight json %}
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",

@@ -14,16 +14,28 @@ I am always looking for ways to automate my Azure environment.  I use Azure as a
 
 In the script below I set the tags on the entire DemoAndTesting before applying it to the virtual machines. This step is not necessary to apply the tag only to virtual machines.  I also limit the tags to the virtual machines in that same resource group in the code below.
 
-{% highlight posh linenos %}
+``` powershell
 
-  Login-AzureRmAccount $rmGroupName = "DemoAndTesting" Set-AzureRmResourceGroup -Name $rmGroupName -Tag @( @{ Name="vmType"; Value="test"}) $tags = (Get-AzureRmResourceGroup -Name $rmGroupName).Tags Get-AzureRmResource |` where {$_.ResourceType -eq "Microsoft.Compute/virtualMachines" -and $_.ResourceGRoupName -eq $rmGroupName} | ` ForEach-Object {Set-AzureRmResource -Tag $tags -ResourceId $_.ResourceId -force}
+  Login-AzureRmAccount $rmGroupName = "DemoAndTesting" `
+    Set-AzureRmResourceGroup -Name $rmGroupName `
+    -Tag @( @{ Name="vmType"; Value="test"}) $tags = `
+      (Get-AzureRmResourceGroup -Name $rmGroupName).Tags `
+      Get-AzureRmResource |`
+        where {$_.ResourceType -eq "Microsoft.Compute/virtualMachines" -and $_.ResourceGRoupName -eq $rmGroupName} | `
+        ForEach-Object {Set-AzureRmResource -Tag $tags -ResourceId $_.ResourceId -force}
 
-{% endhighlight %}
+```
 
 The code to just apply the tags all virtual machines in a subscription it would look like the following.
 
-{% highlight posh linenos %}
-    Login-AzureRmAccount Get-AzureRmResource |` where {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | ` ForEach-Object {Set-AzureRmResource -Tag @( @{ Name="vmType"; Value="test"}) -ResourceId $_.ResourceId -force}
-{% endhighlight %}
+``` powershell
+    Login-AzureRmAccount Get-AzureRmResource |`
+      where {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | `
+      ForEach-Object {Set-AzureRmResource `
+        -Tag @( @{ Name="vmType"; Value="test"}) `
+        -ResourceId $_.ResourceId `
+        -force}
+        
+```
 
 As a database administrator at heart I hated to create a cursor (ForEach-Object) to do this but trying a set based pipe didn't work.  I would love to hear from you if you are doing this in a different way.  How are you using tags in your Azure environment?  Let us know in the comments below.

@@ -6,8 +6,8 @@
 </description>
     <link>http://0.0.0.0:4000/</link>
     <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 24 Jun 2017 23:00:57 +0000</pubDate>
-    <lastBuildDate>Sat, 24 Jun 2017 23:00:57 +0000</lastBuildDate>
+    <pubDate>Mon, 26 Jun 2017 20:17:14 +0000</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 20:17:14 +0000</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -820,51 +820,108 @@
     
       <item>
         <title>Azure Resource Manager Template Custom Script Extensions</title>
-        <description>&lt;p&gt;In my previous article, Building Azure Resource Manager Templates , I covered how to get started with Azure Resource Manager templates.  While they are certainly great for basic deployments, where they really shine is in their ability to allow for complex deployments.  This post will cover the Custom Script Extension and how they can be used to configure Virtual Machines during the deployment process. &lt;strong&gt;&lt;em&gt;Note: This article makes the assumption that you are familiar with the Azure portal and Visual Studio.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;span class=&quot;image featured&quot;&gt;&lt;img src=&quot;//btco.azureedge.net/gallery-1600/AdobeStock_99956429-1600.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;In my previous article, Building Azure Resource Manager Templates , I covered how to get started with Azure Resource Manager templates.  While they are certainly great for basic deployments, where they really shine is in their ability to allow for complex deployments.  This post will cover the Custom Script Extension and how they can be used to configure Virtual Machines during the deployment process. &lt;strong&gt;&lt;em&gt;Note: This article makes the assumption that you are familiar with the Azure portal and Visual Studio.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;the-setup&quot;&gt;The Setup&lt;/h1&gt;
 &lt;p&gt;When I was working on my ARM Template to deploy &lt;a href=&quot;https://github.com/jgardner04/ARM-Templates/tree/master/Sql2016Ctp3Demo&quot;&gt;SQL Server 2016 with the AdventureWorks sample databases installed&lt;/a&gt;, I needed a way to configure the virtual machine once it was installed.  This is done using the Custom Script for Windows Extension.  It is dependent upon the creation of the virtual machine, as can be seen from the image below and requires that the virtual machine be created before adding the extension.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;//btco.azureedge.net/gallery/customscriptextension.png&quot; alt=&quot;Custom Script Extension&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;//btco.azureedge.net/gallery-800/customscriptextension-800.png&quot; alt=&quot;Custom Script Extension&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;the-business&quot;&gt;The Business&lt;/h1&gt;
 &lt;p&gt;After adding the Custom Script Extension, a resource is added to the virtual machine in the ARM template with they type “extensions”.  The code can be seen below.  It shows up as nested in the JSON Outline window.  It also creates a customScripts folder in the solution.  In the case of a Windows extension this file is a PowerShell or .ps1 file.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-powershell&quot; data-lang=&quot;powershell&quot;&gt;&lt;span class=&quot;s1&quot;&gt;'''
-    { name: test, type: extensions, location: [resourceGroup().location], apiVersion: 2015-06-15, dependsOn: [ [concat('&lt;/span&gt;Microsoft.Compute/virtualMachines/&lt;span class=&quot;s1&quot;&gt;', parameters('&lt;/span&gt;Sql2016Ctp3DemoName&lt;span class=&quot;s1&quot;&gt;'))] ], tags: { displayName: test }, properties: { publisher: Microsoft.Compute, type: CustomScriptExtension, typeHandlerVersion: 1.4, autoUpgradeMinorVersion: true, settings: { fileUris: [ [concat(parameters('&lt;/span&gt;_artifactsLocation&lt;span class=&quot;s1&quot;&gt;'), '&lt;/span&gt;/&lt;span class=&quot;s1&quot;&gt;', variables('&lt;/span&gt;testScriptFilePath&lt;span class=&quot;s1&quot;&gt;'), parameters('&lt;/span&gt;_artifactsLocationSasToken&lt;span class=&quot;s1&quot;&gt;'))] ], commandToExecute: [concat('&lt;/span&gt;powershell -ExecutionPolicy Unrestricted -File &lt;span class=&quot;s1&quot;&gt;', variables('&lt;/span&gt;testScriptFilePath&lt;span class=&quot;s1&quot;&gt;'))] } } }
-'''&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-powershell&quot; data-lang=&quot;powershell&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; name: &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;, &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: extensions, location: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;resourceGroup&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.location], apiVersion: 2015-06-15, dependsOn: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;concat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Microsoft.Compute/virtualMachines/'&lt;/span&gt;, parameters&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Sql2016Ctp3DemoName'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, tags: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; displayName: &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;, properties: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; publisher: Microsoft.Compute, &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;: CustomScriptExtension, typeHandlerVersion: 1.4, autoUpgradeMinorVersion: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, settings: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; fileUris: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;concat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;parameters&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_artifactsLocation'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;'/'&lt;/span&gt;, variables&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'testScriptFilePath'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;, parameters&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_artifactsLocationSasToken'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, commandToExecute: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;concat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'powershell -ExecutionPolicy Unrestricted -File '&lt;/span&gt;, variables&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'testScriptFilePath'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;From the custom script, I can perform a host of different actions based on PowerShell.  The code below performs a number of actions.  It creates a folder structure, downloads files, creates and executes a PowerShell function to extract the zip files, moves files, executes T-SQL, and opens firewall ports.
+&lt;p&gt;From the custom script, I can perform a host of different actions based on PowerShell.  The code below performs a number of actions.  It creates a folder structure, downloads files, creates and executes a PowerShell function to extract the zip files, moves files, executes T-SQL, and opens firewall ports.&lt;/p&gt;
 
-[code language=&quot;powershell&quot;] # DeploySqlAw2016.ps1 # # Parameters
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-powershell&quot; data-lang=&quot;powershell&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;c1&quot;&gt;# DeploySqlAw2016.ps1 # # Parameters&lt;/span&gt;
 
-# Variables $targetDirectory = &quot;C:\SQL2016Demo&quot; $adventrueWorks2016DownloadLocation = &quot;https://sql2016demoaddeploy.blob.core.windows.net/adventureworks2016/AdventureWorks2016CTP3.zip&quot;
+    &lt;span class=&quot;c1&quot;&gt;# Variables $targetDirectory = &quot;C:\SQL2016Demo&quot; $adventrueWorks2016DownloadLocation = &quot;https://sql2016demoaddeploy.blob.core.windows.net/adventureworks2016/AdventureWorks2016CTP3.zip&quot;&lt;/span&gt;
 
-# Create Folder Structure if(!(Test-Path -Path $targetDirectory)){ New-Item -ItemType Directory -Force -Path $targetDirectory } if(!(Test-Path -Path $targetDirectory\adventureWorks2016CTP3)){ New-Item -ItemType Directory -Force -Path $targetDirectory\adventureWorks2016CTP3 } # Download the SQL Server 2016 CTP 3.3 AdventureWorks database files. Set-Location $targetDirectory Invoke-WebRequest -Uri $adventrueWorks2016DownloadLocation -OutFile $targetDirectory\AdventureWorks2016CTP3.zip
+    &lt;span class=&quot;c1&quot;&gt;# Create Folder Structure if(!(Test-Path -Path $targetDirectory)){ New-Item -ItemType Directory -Force -Path $targetDirectory } if(!(Test-Path -Path $targetDirectory\adventureWorks2016CTP3)){ New-Item -ItemType Directory -Force -Path $targetDirectory\adventureWorks2016CTP3 } # Download the SQL Server 2016 CTP 3.3 AdventureWorks database files. Set-Location $targetDirectory Invoke-WebRequest -Uri $adventrueWorks2016DownloadLocation -OutFile $targetDirectory\AdventureWorks2016CTP3.zip&lt;/span&gt;
 
-# Create a function to expand zip files function Expand-ZIPFile($file, $destination) { $shell = new-object -com shell.application $zip = $shell.NameSpace($file) foreach($item in $zip.items()) { $shell.Namespace($destination).copyhere($item) } }
+    &lt;span class=&quot;c1&quot;&gt;# Create a function to expand zip files function Expand-ZIPFile($file, $destination) { $shell = new-object -com shell.application $zip = $shell.NameSpace($file) foreach($item in $zip.items()) { $shell.Namespace($destination).copyhere($item) } }&lt;/span&gt;
 
-# Expand the downloaded files Expand-ZIPFile -file $targetDirectory\AdventureWorks2016CTP3.zip -destination $targetDirectory\adventureWorks2016CTP3 Expand-ZIPFile -file $targetDirectory\adventureWorks2016CTP3\SQLServer2016CTP3Samples.zip -destination $targetDirectory\adventureWorks2016CTP3
+    &lt;span class=&quot;c1&quot;&gt;# Expand the downloaded files Expand-ZIPFile -file $targetDirectory\AdventureWorks2016CTP3.zip -destination $targetDirectory\adventureWorks2016CTP3 Expand-ZIPFile -file $targetDirectory\adventureWorks2016CTP3\SQLServer2016CTP3Samples.zip -destination $targetDirectory\adventureWorks2016CTP3&lt;/span&gt;
 
-# Copy backup files to Default SQL Backup Folder Copy-Item -Path $targetDirectory\AdventureWorks2016CTP3\*.bak -Destination &quot;C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup&quot;
+    &lt;span class=&quot;c1&quot;&gt;# Copy backup files to Default SQL Backup Folder Copy-Item -Path $targetDirectory\AdventureWorks2016CTP3\*.bak -Destination &quot;C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup&quot;&lt;/span&gt;
 
-# Restore SQL Backups for AdventureWorks and AdventrueWorksDW Import-Module SQLPS -DisableNameChecking cd \sql\localhost\
+    &lt;span class=&quot;c1&quot;&gt;# Restore SQL Backups for AdventureWorks and AdventrueWorksDW Import-Module SQLPS -DisableNameChecking cd \sql\localhost\&lt;/span&gt;
 
-Invoke-Sqlcmd -Query &quot;USE [master] RESTORE DATABASE [AdventureWorks2016CTP3] FROM  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup\AdventureWorks2016CTP3.bak' WITH  FILE = 1,  MOVE N'AdventureWorks2016CTP3_Data' TO N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\AdventureWorks2016CTP3_Data.mdf',  MOVE N'AdventureWorks2016CTP3_Log' TO N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\AdventureWorks2016CTP3_Log.ldf',  MOVE N'AdventureWorks2016CTP3_mod' TO N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\AdventureWorks2016CTP3_mod',  NOUNLOAD,  REPLACE,  STATS = 5
+    Invoke-Sqlcmd -Query &lt;span class=&quot;s2&quot;&gt;&quot;USE [master] RESTORE DATABASE [AdventureWorks2016CTP3] FROM  DISK = N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\B&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ackup&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorks2016CTP3.bak' WITH  FILE = 1,  MOVE N'AdventureWorks2016CTP3_Data' TO N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ATA&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorks2016CTP3_Data.mdf',  MOVE N'AdventureWorks2016CTP3_Log' TO N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ATA&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorks2016CTP3_Log.ldf',  MOVE N'AdventureWorks2016CTP3_mod' TO N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ATA&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorks2016CTP3_mod',  NOUNLOAD,  REPLACE,  STATS = 5
 
-GO&quot; -ServerInstance LOCALHOST -QueryTimeout 0
+    GO&quot;&lt;/span&gt; -ServerInstance LOCALHOST -QueryTimeout 0
 
-Invoke-Sqlcmd -Query &quot;USE [master] RESTORE DATABASE [AdventureworksDW2016CTP3] FROM  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\Backup\AdventureWorksDW2016CTP3.bak' WITH  FILE = 1,  MOVE N'AdventureWorksDW2014_Data' TO N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\AdventureWorksDW2016CTP3_Data.mdf',  MOVE N'AdventureWorksDW2014_Log' TO N'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA\AdventureWorksDW2016CTP3_Log.ldf',  NOUNLOAD,  REPLACE,  STATS = 5
+    Invoke-Sqlcmd -Query &lt;span class=&quot;s2&quot;&gt;&quot;USE [master] RESTORE DATABASE [AdventureworksDW2016CTP3] FROM  DISK = N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\B&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ackup&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorksDW2016CTP3.bak' WITH  FILE = 1,  MOVE N'AdventureWorksDW2014_Data' TO N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ATA&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorksDW2016CTP3_Data.mdf',  MOVE N'AdventureWorksDW2014_Log' TO N'C:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\P&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;rogram Files&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;icrosoft SQL Server&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL13.MSSQLSERVER&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\M&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SSQL&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ATA&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\A&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;dventureWorksDW2016CTP3_Log.ldf',  NOUNLOAD,  REPLACE,  STATS = 5
 
-GO&quot; -ServerInstance LOCALHOST -QueryTimeout 0
+    GO&quot;&lt;/span&gt; -ServerInstance LOCALHOST -QueryTimeout 0
 
-# Firewall Rules #Enabling SQL Server Ports New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433 -Action allow New-NetFirewallRule -DisplayName “SQL Admin Connection” -Direction Inbound –Protocol TCP –LocalPort 1434 -Action allow New-NetFirewallRule -DisplayName “SQL Database Management” -Direction Inbound –Protocol UDP –LocalPort 1434 -Action allow New-NetFirewallRule -DisplayName “SQL Service Broker” -Direction Inbound –Protocol TCP –LocalPort 4022 -Action allow New-NetFirewallRule -DisplayName “SQL Debugger/RPC” -Direction Inbound –Protocol TCP –LocalPort 135 -Action allow #Enabling SQL Analysis Ports New-NetFirewallRule -DisplayName “SQL Analysis Services” -Direction Inbound –Protocol TCP –LocalPort 2383 -Action allow New-NetFirewallRule -DisplayName “SQL Browser” -Direction Inbound –Protocol TCP –LocalPort 2382 -Action allow #Enabling Misc. Applications New-NetFirewallRule -DisplayName “HTTP” -Direction Inbound –Protocol TCP –LocalPort 80 -Action allow New-NetFirewallRule -DisplayName “SSL” -Direction Inbound –Protocol TCP –LocalPort 443 -Action allow New-NetFirewallRule -DisplayName “SQL Server Browse Button Service” -Direction Inbound –Protocol UDP –LocalPort 1433 -Action allow #Enable Windows Firewall Set-NetFirewallProfile -DefaultInboundAction Block -DefaultOutboundAction Allow -NotifyOnListen True -AllowUnicastResponseToMulticast True '''
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Firewall Rules #Enabling SQL Server Ports New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433 -Action allow New-NetFirewallRule -DisplayName “SQL Admin Connection” -Direction Inbound –Protocol TCP –LocalPort 1434 -Action allow New-NetFirewallRule -DisplayName “SQL Database Management” -Direction Inbound –Protocol UDP –LocalPort 1434 -Action allow New-NetFirewallRule -DisplayName “SQL Service Broker” -Direction Inbound –Protocol TCP –LocalPort 4022 -Action allow New-NetFirewallRule -DisplayName “SQL Debugger/RPC” -Direction Inbound –Protocol TCP –LocalPort 135 -Action allow #Enabling SQL Analysis Ports New-NetFirewallRule -DisplayName “SQL Analysis Services” -Direction Inbound –Protocol TCP –LocalPort 2383 -Action allow New-NetFirewallRule -DisplayName “SQL Browser” -Direction Inbound –Protocol TCP –LocalPort 2382 -Action allow #Enabling Misc. Applications New-NetFirewallRule -DisplayName “HTTP” -Direction Inbound –Protocol TCP –LocalPort 80 -Action allow New-NetFirewallRule -DisplayName “SSL” -Direction Inbound –Protocol TCP –LocalPort 443 -Action allow New-NetFirewallRule -DisplayName “SQL Server Browse Button Service” -Direction Inbound –Protocol UDP –LocalPort 1433 -Action allow #Enable Windows Firewall Set-NetFirewallProfile -DefaultInboundAction Block -DefaultOutboundAction Allow -NotifyOnListen True -AllowUnicastResponseToMulticast True&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;By default the custom script is located in the solution but it does not have to be.  In the code example below, I actually call the script from GitHub.  Note the fileUris: link.&lt;/p&gt;
 
-&lt;p&gt;[code] resources: [ { name: deploySql2016Ctp3, type: extensions, location: [resourceGroup().location], apiVersion: 2015-06-15, dependsOn: [ [concat(‘Microsoft.Compute/virtualMachines/’, parameters(‘Sql2016Ctp3DemoName’))] ], tags: { displayName: deploySql2016Ctp3 }, properties: { publisher: Microsoft.Compute, type: CustomScriptExtension, typeHandlerVersion: 1.4, autoUpgradeMinorVersion: true, settings: { fileUris: [ https://raw.githubusercontent.com/jgardner04/Sql2016Ctp3Demo/master/Sql2016Ctp3Demo/CustomScripts/deploySql2016Ctp3.ps1 ], commandToExecute: powershell.exe -ExecutionPolicy Unrestricted -File deploySql2016Ctp3.ps1 } } } ] [/code]&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;err&quot;&gt;resources:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;name:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;deploySql2016Ctp3,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;type:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;extensions,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;location:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[resourceGroup().location],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;apiVersion:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;06&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;15,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;dependsOn:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[concat('Microsoft.Compute/virtualMachines/',&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;parameters('Sql2016Ctp3DemoName'))]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tags:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;displayName:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;deploySql2016Ctp3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;properties:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;publisher:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Microsoft.Compute,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;type:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;CustomScriptExtension,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;typeHandlerVersion:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;1.4,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;autoUpgradeMinorVersion:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;true,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;settings:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;fileUris:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[https:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//raw.githubusercontent.com/jgardner04/Sql2016Ctp3Demo/master/Sql2016Ctp3Demo/CustomScripts/deploySql2016Ctp3.ps1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;commandToExecute:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;powershell.exe&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-ExecutionPolicy&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Unrestricted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-File&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;deploySql2016Ctp3.ps1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;With this post we showed how we can create a virtual machine and customize it through the use of Azure Resource Manager templates.  In future posts we will explore how to expand the use of Azure Resource Manager templates to create complex services that include multiple Azure Resources and services.  Are you using Azure Resource Manager templates in your environment?  We would love to hear about it in the comments below.&lt;/p&gt;
 
@@ -875,6 +932,67 @@ GO&quot; -ServerInstance LOCALHOST -QueryTimeout 0
         <guid isPermaLink="true">http://0.0.0.0:4000/azure/2016/04/26/Azure-Resource-Manager-Templates-Custom-Script-Extensions.html</guid>
         
         <category>azure</category>
+        
+        
+        <category>Azure</category>
+        
+      </item>
+    
+      <item>
+        <title>Shutdown Tagged VMs with Azure Automation</title>
+        <description>&lt;p&gt;&lt;span class=&quot;image featured&quot;&gt;&lt;img src=&quot;//btco.azureedge.net/gallery-1600/AdobeStock_97576601.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;In my previous post PowerShell to update the tags on resources, I added tags to the virtual machines in my subscription.  There are a host of reasons why resources may be tagged in Azure.  I have seen customers use them to identify the department or application resources belong to.  I have seen partners use tags for billing by tagging resources by customers.  The use varies but as a huge fan of automation I am going to use them to automate tasks against my virtual machines.  In this post I will use tags in conjunction with Azure Automation to shutdown virtual machines at the end of the day.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note: This article makes the assumption that you are familiar with the Azure portal.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.  I also am not going to cover the movement of the file from one blob to another, I will do that in a separate post.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-setup&quot;&gt;The Setup&lt;/h2&gt;
+&lt;p&gt;There are a lot of templates that can be used for controlling VMs in the Azure Automation gallery but for me it was not that simple.  The preferred method of security using Azure Automation is to use RBAC.  The problem, for me, is that to get Azure Automation working with RBAC you need to be able to add that resource to Azure Active Directory and then to the Azure Subscription as a Co-Administrator.  All of that works well if you own the Azure Subscription or can get a user added.  In my case, I do not and cannot have that done with the way they are configured at internally at Microsoft.&lt;/p&gt;
+
+&lt;p&gt;In my previous post about using &lt;a href=&quot;/azure/2016/04/12/azure-automation-sql.html&quot;&gt;Azure Automation, my SQL Agent in the Cloud&lt;/a&gt;, I created an Azure Automation RunAs account when I created my Azure Automation Account.  I will use this account to perform automation actions.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-the-azure-runas-account&quot;&gt;Setting up the Azure RunAs Account&lt;/h2&gt;
+&lt;p&gt;In an effort to practice what I preach, I am going to link out this portion of the post in an effort not to recreate the wheel.  Checkout the documentation for how to &lt;a href=&quot;//docs.microsoft.com/en-us/azure/automation/&quot;&gt;Authenticate Runbooks with Azure Run As Account&lt;/a&gt;.  I actually made some corrections on this documentation for the Azure team in &lt;a href=&quot;//github.com/Microsoft/azure-docs&quot;&gt;GitHub&lt;/a&gt; in preparation for this article and getting it to flow smoothly.&lt;/p&gt;
+
+&lt;p&gt;Once the New-AzureServicePrincipal.ps1 file has been run two Azure Automation Assets will have been created.  A Certificate and Connection, both will be used in the code to shut down tagged VMs.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-business&quot;&gt;The Business&lt;/h2&gt;
+&lt;p&gt;First create the assets necessary to automate the subscription.  The first is a schedule.  This scrip will run daily.  The second asset to create is a variable with the subscription name in it.  The subscription name is called when calling the Get-AzureRmSubscription command.  The final piece is to actually create the runbook.  Create a blank PowerShell runbook with the following code in it.&lt;/p&gt;
+
+&lt;p&gt;$currentTime = (Get-Date).ToUniversalTime() Write-Output &amp;amp;quot;Runbook started.&amp;amp;quot;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-posh&quot; data-lang=&quot;posh&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;c1&quot;&gt;# Establish Connection $Conn = Get-AutomationConnection -Name 'AzureRunAsConnection' Add-AzureRMAccount -ServicePrincipal ` -Tenant $Conn.TenantID ` -ApplicationId $Conn.ApplicationID ` -CertificateThumbprint $Conn.CertificateThumbprint&lt;/span&gt;
+
+    &lt;span class=&quot;nv&quot;&gt;$subName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Get-AutomationVariable -Name &lt;span class=&quot;s1&quot;&gt;'Subscription'&lt;/span&gt; Get-AzureRmSubscription -SubscriptionName &lt;span class=&quot;nv&quot;&gt;$subName&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Get a list of all tagged VMs in the Subscripiton that are running $resourceManagerVMList = @(Get-AzureRmResource | ` where {$_.ResourceType -like &amp;amp;amp;quot;Microsoft.*/virtualMachines&amp;amp;amp;quot;} | ` where {$_.Tags.Count -gt 0 ` -and $_.Tags.Name ` -contains &amp;amp;amp;quot;AutoShutdownSchedule&amp;amp;amp;quot;} | ` sort Name) Write-Output &amp;amp;amp;quot;Found [$($resourceManagerVMList.Count)] tagged VMs in the subscription&amp;amp;amp;quot;&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;#Shutdown any running VMs foreach($vm in $resourceManagerVMList) { $resourceManagerVM = Get-AzureRmVM -ResourceGroupName ` $vm.ResourceGroupName ` -Name $vm.Name ` -Status foreach($vmStatus in $resourceManagerVM.Statuses) { if($vmStatus.Code.CompareTo(&amp;amp;amp;quot;PowerState/running&amp;amp;amp;quot;) -eq 0) { $resourceManagerVM | ` Stop-AzureRmVm -Force Write-Output $vm.Name was Shutdown } } }&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;Write-Output&lt;/span&gt; &amp;amp;amp;quot;Runbook finished &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Duration: &lt;span class=&quot;k&quot;&gt;$((&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;amp;quot;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;:hh&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;mm&lt;span class=&quot;se&quot;&gt;\:&lt;/span&gt;ss&lt;span class=&quot;o&quot;&gt;}&amp;amp;&lt;/span&gt;amp;quot; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;f &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Get-Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.ToUniversalTime&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$currentTime&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;&amp;amp;amp;quot;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This code assumes that the only VMs in the account are running in the v2 or Azure Resource Manager type.  If you are dealing with a mixed environment, additional code will need to be written to shut down those VMs.&lt;/p&gt;
+
+&lt;p&gt;While this is designed to shut down my VMs at the end of the day, there are some exciting new features on the horizon to help with this as well.  Some of these power scheduling features will come standard in the new &lt;a href=&quot;//azure.microsoft.com/en-us/services/devtest-lab/&quot;&gt;DevTest Labs&lt;/a&gt; service in Azure.&lt;/p&gt;
+
+&lt;p&gt;Are you using Azure Automation in your environment today?  I would love to hear about it in the comments below.  If you like the content on my blog, I also blog on the &lt;a href=&quot;//blogs.technet.microsoft.com/msuspartner/category/data-analytics-partners/&quot;&gt;US Azure and Data Analytics Partner Blogs&lt;/a&gt;.  I encourage you to check those out for more great resources. Also don’t forget to follow me on Twitter as much of what I talk about is related to Azure.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Apr 2016 16:00:00 +0000</pubDate>
+        <link>http://0.0.0.0:4000/azure/2016/04/21/Shutdown-Tagged-VMs-with-Azure-Automation.html</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/azure/2016/04/21/Shutdown-Tagged-VMs-with-Azure-Automation.html</guid>
+        
+        <category>azure</category>
+        
+        <category>automation</category>
         
         
         <category>Azure</category>
