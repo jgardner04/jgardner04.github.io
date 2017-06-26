@@ -7,7 +7,7 @@ categories: Azure
 tags: [azure, automation]
 ---
 
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_97576601.jpeg" alt=""></span>
+<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_97576601-1600.jpeg" alt=""></span>
 
 In my previous post PowerShell to update the tags on resources, I added tags to the virtual machines in my subscription.  There are a host of reasons why resources may be tagged in Azure.  I have seen customers use them to identify the department or application resources belong to.  I have seen partners use tags for billing by tagging resources by customers.  The use varies but as a huge fan of automation I am going to use them to automate tasks against my virtual machines.  In this post I will use tags in conjunction with Azure Automation to shutdown virtual machines at the end of the day.
 
