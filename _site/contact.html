@@ -78,14 +78,16 @@
 					<section class="wrapper style4 special container small">
 
 						<!-- Content -->
+
+						<!--
 							<div class="content">
-								<form>
+								<form id="contactForm">
 									<div class="row half collapse-at-2">
 										<div class="6u">
 											<input type="text" name="name" placeholder="Name" />
 										</div>
 										<div class="6u">
-											<input type="text" name="email" placeholder="Email" />
+											<input type="text" name="fromEmail" placeholder="Email" />
 										</div>
 									</div>
 									<div class="row half">
@@ -106,7 +108,52 @@
 										</div>
 									</div>
 								</form>
+
 							</div>
+						-->
+						<h1>Contact Form</h1>
+						Send me a message! (Congratulations for finding this, it's not an official part of the site!)
+						<div id="contactForm">
+						    Your Email: <input type="text" name="fromEmail" /><br />
+						    Message: <br />
+						    <textarea cols="60" rows="4" name="message"></textarea><br />
+						    <input type="submit" value="Send!" />
+						</div>
+
+						<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+						<script type="text/javascript">
+						    var url = "https://btco-functions.azurewebsites.net/api/contact?code=1tuDIu7AgEyb4kJS61Zj54GKoVugM4GaDZqWb98QjTl3JrNZJEqaog==";
+						    $("form").on('submit', function (event) {
+						        event.preventDefault();
+
+						        // grab contact form data
+						        var data = $(this).serialize();
+
+						        // hide prior errors, disable inputs while we're submitting
+						        $("#contactFormError").hide();
+						        $("#contactForm input").prop('disabled', true);
+
+						        // back in my day, we had to AJAX uphill both ways, in the snow, through cross-iframe scripts
+						        $.ajax({
+						            type: "POST",
+						            url: url,
+						            data: data,
+						            dataType: "text",
+						            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+						            success: function (respData) {
+						                // Yay, success!!
+						                $("#contactForm").html("<div style='padding: 5em 1em; text-align: center; color: #008800'>" + respData + "</div>");
+						            },
+						            error: function (jqXHR) {
+						                // Boo, error...
+						                $("#contactFormError").html("<div style='padding: 1em; text-align: center; color: #660000'>Sorry, an error occurred: " + jqXHR.responseText + "</div>");
+						                $("#contactFormError").show();
+						                $("#contactForm input").prop('disabled', false);
+						            }
+						        });
+						    });
+						</script>
+
 
 					</section>
 
