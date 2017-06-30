@@ -19,6 +19,20 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
 
+		<script type="text/javascript">
+
+        var onSubmit = function(token) {
+          console.log('success!');
+        };
+
+        var onloadCallback = function() {
+          grecaptcha.render('submit', {
+            'sitekey' : '6Lf_fCcUAAAAAFjxZjUwZsbEU6oaM8Vtlg2jnJ16',
+            'callback' : onSubmit
+          });
+        };
+    </script>
+
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -103,12 +117,19 @@
 									</div>
 									<div class="row">
 										<div class="12u">
+
 											<ul class="buttons">
-												<li><input type="submit" class="special" value="Send Message" /></li>
+												<li><input it='submit' type="submit" class="special" value="Send Message" /></li>
 											</ul>
+
 										</div>
 									</div>
 								</form>
+
+							</form>
+							<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+									async defer>
+							</script>
 
 							</div>
 					</section>
