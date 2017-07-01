@@ -1,84 +1,7 @@
-<!DOCTYPE HTML>
-<!--
-	Twenty by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Contact - Beyond the Corner Office</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.scrollgress.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-
-		<script type="text/javascript">
-
-        var onSubmit = function(token) {
-          console.log('success!');
-        };
-
-        var onloadCallback = function() {
-          grecaptcha.render('submit', {
-            'sitekey' : '6Lf_fCcUAAAAAFjxZjUwZsbEU6oaM8Vtlg2jnJ16',
-            'callback' : onSubmit
-          });
-        };
-    </script>
-
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-wide.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
-
-		<!-- Application Insights -->
-    <script type="text/javascript">
-    var appInsights=window.appInsights||function(config){
-        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-		    }({
-		        instrumentationKey: "46f6a2ab-4acc-49ca-8831-2a63b5b4f2f9"
-		    });
-
-		    window.appInsights = appInsights;
-		    appInsights.trackPageView();
-    </script>
-	</head>
-	<body class="contact">
-
-		<!-- Header -->
-		<header id="header">
-						<h1 id="logo"><a href="/">Beyond <span> the Corner Office</span></a></h1>
-						<nav id="nav">
-							<ul>
-								<li><a href="/blog.html">Blog</a></li>
-								<li><a href="http://www.jonathanagardner.com">Photography</a></li>
-								<li><a href="/about.html ">About</a>
-								<!--
-								<li class="submenu">
-									<a href="">About</a>
-									<ul>
-										<li><a href="/left-sidebar.html">Left Sidebar</a></li>
-										<li><a href="/right-sidebar.html">Right Sidebar</a></li>
-										<li><a href="/no-sidebar.html">No Sidebar</a></li>
-										<li><a href="/contact.html">Contact</a></li>
-									</ul>
-								-->
-								</li>
-								<li><a href="/contact.html" class="button special">Contact</a></li>
-							</ul>
-						</nav>
-					</header>
+---
+layout: landing-page
+title: "Contact"
+---
 
 		<!-- Main -->
 			<article id="main">
@@ -86,75 +9,34 @@
 				<header class="special container">
 					<span class="icon fa-envelope"></span>
 					<h2>Get In Touch</h2>
-					<p>Use the form below to give me a piece of your mind.</p>
 				</header>
 
 				<!-- One -->
-					<section class="wrapper style4 special container small">
+					<section class="wrapper style4 container">
 
 						<!-- Content -->
-
-
 							<div class="content">
-								<form id="contactForm" action="https://btco-functions.azurewebsites.net/api/contact?code=1tuDIu7AgEyb4kJS61Zj54GKoVugM4GaDZqWb98QjTl3JrNZJEqaog==" method="POST" autocomplete="on" enctype="application/x-www-form-urlencoded">
-									<div class="row half collapse-at-2">
-										<div class="6u">
-											<input type="text" name="name" placeholder="Name" />
-										</div>
-										<div class="6u">
-											<input type="text" name="fromEmail" placeholder="Email" />
-										</div>
-									</div>
-									<div class="row half">
-										<div class="12u">
-											<input type="text" name="subject" placeholder="Subject" />
-										</div>
-									</div>
-									<div class="row half">
-										<div class="12u">
-											<textarea name="message" placeholder="Message" rows="7"></textarea>
-										</div>
-									</div>
-									<div class="row">
-										<div class="12u">
-
-											<ul class="buttons">
-												<li><input it='submit' type="submit" class="special" value="Send Message" /></li>
-											</ul>
-
-										</div>
-									</div>
-								</form>
-
-							</form>
-							<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-									async defer>
-							</script>
-
+								<p>
+									Thanks for the wanting to get in touch with me. There are a bunch of way ways to find. You can use any of the medium below.
+								</p>
+								<p>
+									<strong> Email: </strong><a href="mailto:jonathan@beyondthecorneroffice.com">Jonathan@BeyondTheCornerOffice.com</a> I get a lot of email daily. I will do my best to return email as quickly as possible but I am not a fan. This can be reflected in my desire to use <a href="//teams.microsoft.com" target="_blank">Microsoft Teams</a> or <a href="//slack.com" target="_blank"> Slack </a>.
+								</p>
+								<p>
+									<strong> Twitter: </strong><a href="//twitter.com/jgardner04" target="_blank">jgardner04</a> This might be best way to reach me. I regularly share content Azure related content and engage in discussion. You can see much of my work history conveyed through my tweets. I do read my direct messages and allow them from people and allow them from people who don't follow me.
+								</p>
+								<p>
+									<strong> LinkedIn: </strong><a href="//https://www.linkedin.com/in/jonathangardner/" target="_blank">jonathangardner</a> Most of my work history is outlined well here. I accept connections from people I have met in person, talked to, or worked with enough to consider a work contact. I do not respond to messages from people I do not know.
+								</p>
+								<p>
+									<strong> Facebook: </strong> I connect with work and public contacts on Twitter and through LinkedIn as mentioned above. I reserve Facebook for friends and family on my personal profile. I do have a Facebook page form my Photography if you are interested in following me there. <a href="https://www.facebook.com/jonathanagardnerphotography" target="_blank"> Jonathan Gardner Photography</a>
+								</p>
+								<p>
+									<strong><a href="//whispersystems.org/" target="_blank"> Signal: </a></strong> If you want to get in touch with me through secure channel, I am happy to do so via Signal.
+								</p>
+								<p>
+									<Strong><a href="https://keybase.io/jgardner04" target="">Keybase and Public PGP Key</a></strong> Much like Signal mentioned above, if you would like to communicate with me securely I am on Keybase with many proofs. If you want to encrypt files and send them to me, use the key there.
+								</p>
 							</div>
 					</section>
-
-
 			</article>
-
-		<!-- Footer -->
-		<footer id="footer">
-
-				<ul class="icons">
-						<li><a href="https://twitter.com/jgardner04" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/jonathanagardnerphotography/" class="icon circle fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
-						<li><a href="https://plus.google.com/u/0/+JonathanGardner2004" class="icon circle fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
-						<li><a href="https://github.com/jgardner04" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
-						<!--
-						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-						-->
-				</ul>
-
-				<ul class="copyright">
-						<li>&copy; Beyond the Corner Office</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-
-		</footer>
-
-	</body>
-</html>
