@@ -5,6 +5,7 @@ date:   2016-04-12 16:00:00
 comments: true
 categories: Azure
 tags: azure
+author: jgardner04
 ---
 <span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_102187112-1600.jpeg" alt=""></span>
 
@@ -35,7 +36,7 @@ The code to just apply the tags all virtual machines in a subscription it would 
         -Tag @( @{ Name="vmType"; Value="test"}) `
         -ResourceId $_.ResourceId `
         -force}
-        
+
 ```
 
 As a database administrator at heart I hated to create a cursor (ForEach-Object) to do this but trying a set based pipe didn't work.  I would love to hear from you if you are doing this in a different way.  How are you using tags in your Azure environment?  Let us know in the comments below.

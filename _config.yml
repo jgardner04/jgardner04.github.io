@@ -33,3 +33,5 @@ gems:
 # Jekyll Mentions Config
 jekyll-mentions:
   base_url: https://twitter.com
+
+# Jekyll Feed Config

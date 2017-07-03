@@ -5,6 +5,7 @@ date:   2016-04-26 16:00:00
 comments: true
 categories: Azure
 tags: azure
+author: jgardner04
 ---
 <span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_99956429-1600.jpeg" alt=""></span>
 

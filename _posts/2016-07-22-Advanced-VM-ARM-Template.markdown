@@ -5,6 +5,7 @@ date:   2016-07-22 16:00:00
 comments: true
 categories: Azure
 tags: [azure, automation, arm, virtual machines]
+author: jgardner04
 ---
 <span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_61327476-1600.jpeg" alt=""></span>
 

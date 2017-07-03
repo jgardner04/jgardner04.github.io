@@ -5,6 +5,7 @@ date:   2016-04-12 16:00:00
 comments: true
 categories: Azure
 tags: [sql, azure, automation]
+author: jgardner04
 ---
 <span class="image featured"><img src="//btco.azureedge.net/gallery-1600/death_to_stock_photography_weekend_work-2-of-10-1600.jpg" alt=""></span>
 
