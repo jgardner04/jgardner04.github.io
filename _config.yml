@@ -26,3 +26,10 @@ kramdown:
 # Gems
 gems:
   - jekyll-feed
+  - jekyll-mentions
+  - jemoji
+  - jekyll-sitemap
+
+# Jekyll Mentions Config
+jekyll-mentions:
+  base_url: https://twitter.com
