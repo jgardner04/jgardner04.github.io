@@ -4,7 +4,7 @@ email: jonathan@beyondthecorneroffice.com
 description: > # this means to ignore newlines until "baseurl:"
   Technology musings from Beyond the Corner Office. A Jonathan Gardner blog where all things cloud are discussed.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://jgardner04.github.io" # the base hostname & protocol for your site
+url: "http://beyondthecorneroffice.com" # the base hostname & protocol for your site
 twitter_username: jgardner04
 github_username:  jgardner04
 

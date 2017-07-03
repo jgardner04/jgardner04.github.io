@@ -4,7 +4,10 @@ title:  "New Blog, New Role"
 date:   2017-06-03 10:00:00
 comments: true
 tags: [blog]
+author: jgardner04
 ---
+<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/death_to_stock_photography_weekend_work-2-of-10-1600.jpg" alt=""></span>
+
 
 ## The new Gig
 A new blog and a new role here at Microsoft. Starting today I am joining the [Azure Customer Advisory Team](//blogs.msdn.microsoft.com/azurecat/2017/01/05/hello-world-welcome-to-azurecat-guidance/#pnp). I am excited for the challenge and look forward to learning from wealth of experience hard won working on some of the most challenging and innovative customer solutions. I hope to be able to add to the reputation the team has earned over the years.
