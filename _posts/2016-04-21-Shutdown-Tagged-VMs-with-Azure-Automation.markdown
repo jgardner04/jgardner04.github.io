@@ -5,7 +5,7 @@ date:   2016-04-21 16:00:00
 comments: true
 categories: Azure
 tags: [azure, automation]
-author: jgardner04
+author: Jonathan
 ---
 
 <span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_97576601-1600.jpeg" alt=""></span>

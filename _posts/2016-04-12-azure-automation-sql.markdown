@@ -5,10 +5,9 @@ date:   2016-04-12 16:00:00
 comments: true
 categories: Azure
 tags: [sql, azure, automation]
-author: jgardner04
+author: Jonathan
 ---
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/death_to_stock_photography_weekend_work-2-of-10-1600.jpg" alt=""></span>
-
+<span class="image featured"><img src="//btco.azureedge.net/gallery/death_to_stock_photography_weekend_work-2-of-10-1600.jpg" alt=""></span>
 
 My focus for the past 18 moths at Microsoft has been on Azure but that does not mean I left my love for SQL behind.  In fact, has become an asset.  In the course of regular operations I have built out a workflow to import call statistics and reporting data from our community activities into Azure SQL for reporting in Power BI.  In that process I needed the ability to run a stored procedure on schedule to normalize some data.  Without a SQL Agent in Azure SQL, I use Azure Automation to get this done.  In this article I will walk through the application workflow and how I set up Azure Automation to be my SQL Agent in the cloud.
 
