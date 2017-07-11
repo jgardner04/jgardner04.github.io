@@ -7,9 +7,9 @@ categories: Azure
 tags: [Bots, azure, AI]
 author: Jonathan
 ---
-<span class="image featured"><img src="//btco.azureedge.net/presentations/AI%20Presentation.jpg" alt=""></span>
+<span class="image featured"><img src="//btco.azureedge.net/presentations/AIPresentation.jpg" alt=""></span>
 
-This week I had a chance to lead a small group discussion on Bots and Artificial intelligence at the [Microsoft Inspire Partner Conference](//partner.microsoft.com/en-us/inspire). Some people were interested in my slides so I have included a link to the slides [here](//btco.azureedge.net/presentations/AI%20Presentation.pptx). During that discussion, we covered an overview of [Bots](//dev.botframework.com/) and the [Cognitive Services APIs](//azure.microsoft.com/en-us/services/cognitive-services/). I left that discussion with a few items that needed further discussion or clarification. In this post I will cover those topics.
+This week I had a chance to lead a small group discussion on Bots and Artificial intelligence at the [Microsoft Inspire Partner Conference](//partner.microsoft.com/en-us/inspire). Some people were interested in my slides so I have included a link to the slides [here](//btco.azureedge.net/presentations/AIPresentation.pptx). During that discussion, we covered an overview of [Bots](//dev.botframework.com/) and the [Cognitive Services APIs](//azure.microsoft.com/en-us/services/cognitive-services/). I left that discussion with a few items that needed further discussion or clarification. In this post I will cover those topics.
 
 ## Design Patters
 There are some documented design patterns that have been proven that anyone looking to build a bot should take a look at. I have linked to them in the list below.
