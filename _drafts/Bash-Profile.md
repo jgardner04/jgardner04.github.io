@@ -7,6 +7,7 @@ categories: Tech
 tags: [mac, terminal, developer]
 author: Jonathan
 ---
+
 I have been using a Macbook Pro as my primary work computer for about 6mo. now. This is not the first time. I used a Mac for many years before coming to work for Microsoft and have always liked them. As a photographer and video editor I have have always been partial to them in my personal life. As I have been doing more and more work with Opensource I have spent more time in the Terminal app than ever before. I have never really thought much about customizing my Bash Profile before. This week that changed and I wanted to share my profile. If you want to jump straight to download the profile you can do that on [GitHub](https://gist.github.com/jgardner04/6f1d85851d0698edb3ac183ad50ff91d).
 
 ## Getting Started
