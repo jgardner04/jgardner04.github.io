@@ -16,12 +16,14 @@ Before jumping right into customizing my Bash profile I started doing some resea
 ```bash
 
   brew install bash
+
 ```
 With bash installed as `/usr/local/bin/bash`, I just needed to change my default shell to use this. I edited `/etc/shells` with `vim` and added the shell at the bottom of the list. Finally, I ran the below command to change the default shell.
 
 ```bash
 
   chsh -s /usr/local/bin/bash
+
 ```
 After closing and reopening Terminal, I could run `echo $BASH_VERSION` and see 4.4.12(1)-release as the running version of bash.
 
@@ -34,6 +36,7 @@ I am lazy, so I love being able to type a few letters and tab through my options
 ```bash
 
   brew install bash-completion
+
 ```
 It then needs to be added to the ~/.bash_profile. I have added it along with Git, [Docker](https://docs.docker.com/docker-for-mac/#installing-bash-completion), and [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) completion. This makes the auto-completion second of my profile look like the code below.
 
@@ -48,6 +51,7 @@ It then needs to be added to the ~/.bash_profile. I have added it along with Git
   fi
 
   # -----------------------
+
 ```
 ## Color the Terminal
 In doing research on ways to customize the Terminal window I had seen themes but I also found out that it was possible to use colors to decorate items in the Terminal windows to make quickly identifying information easier. As a fan of the [Solarized](http://ethanschoonover.com/solarized) color profile, I found it in a host of theme files in [This GitHub repo](https://github.com/lysyi3m/osx-terminal-themes/tree/master/schemes).
@@ -65,6 +69,7 @@ parse_git_branch() {
   export CLICOLOR=1
   export LSCOLORS=GxFxCxDxBxegedabagaced
   alias ls='ls -GFh'
+
 ```
 The rest of the code adds functionality to the terminal that makes things a little bit easier to use. This includes things like changing the default functionality of the `cd` command to execute my preferred ls command `ls -FGlAhp` or moving into a newly created directory with the new `mcd` command.
 
@@ -196,5 +201,6 @@ The rest of the code adds functionality to the terminal that makes things a litt
           #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
           echo
       }
+      
 ```
 Do you have a custom Bash profile? I would love to see some of the things that you find useful in the comments below. If you find this content useful, be sure to follow me on [Twitter](https://twitter.com/jgardner04) or follow my [RSS feed](http://www.beyondthecorneroffice.com/feed.xml).
