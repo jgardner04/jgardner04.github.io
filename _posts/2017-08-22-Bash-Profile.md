@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Bash Profile"
-date:   2017-08-16 16:00:00
+date:   2017-08-22 16:00:00
 comments: true
 categories: Tech
 tags: [mac, terminal, developer]
 author: Jonathan
 ---
 
-I have been using a Macbook Pro as my primary work computer for about 6mo. now. This is not the first time. I used a Mac for many years before coming to work for Microsoft and have always liked them. As a photographer and video editor I have have always been partial to them in my personal life. As I have been doing more and more work with Opensource I have spent more time in the Terminal app than ever before. I have never really thought much about customizing my Bash Profile before. This week that changed and I wanted to share my profile. If you want to jump straight to download the profile you can do that on [GitHub](https://gist.github.com/jgardner04/6f1d85851d0698edb3ac183ad50ff91d).
+I have been using a MacBook Pro as my primary work computer for about 6 months now. As a developer, photographer, and video editor I have have always been partial to them in my personal life. I have been spending more and more time in the Terminal app then ever before. I have never really thought much about customizing my Bash Profile before I was trying to do Docker and Git auto-completion. After seeing a few examples, I started working on my own. If you want to jump straight to download the profile you can do that on [GitHub](https://gist.github.com/jgardner04/6f1d85851d0698edb3ac183ad50ff91d).
 
 ## Getting Started
 Before jumping right into customizing my Bash profile I started doing some research and found that the version of Bash that ships with OS X is not the latest version. The per-installed version is a at least a major release behind. I have been using [Homebrew](https://brew.sh/) as a package manager for OS X for some time, so when I found out that my Bash shell was behind I went to Homebrew to update it with the command below.
@@ -38,6 +38,7 @@ I am lazy, so I love being able to type a few letters and tab through my options
 It then needs to be added to the ~/.bash_profile. I have added it along with Git, [Docker](https://docs.docker.com/docker-for-mac/#installing-bash-completion), and [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) completion. This makes the auto-completion second of my profile look like the code below.
 
 ```bash
+
   # Auto Completion Files
 
   source '/Users/jgardner/lib/azure-cli/az.completion'
@@ -54,6 +55,7 @@ In doing research on ways to customize the Terminal window I had seen themes but
 With the Solarized theme installed I wanted to add color context to the terminal. The below code does just that and a bit more. It ads the Git branch into the command line if there is one in the working directory.
 
 ```bash
+
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
@@ -67,6 +69,7 @@ parse_git_branch() {
 The rest of the code adds functionality to the terminal that makes things a little bit easier to use. This includes things like changing the default functionality of the `cd` command to execute my preferred ls command `ls -FGlAhp` or moving into a newly created directory with the new `mcd` command.
 
 ```bash
+
   #   -----------------------------
   #   2. MAKE TERMINAL BETTER
   #   -----------------------------
