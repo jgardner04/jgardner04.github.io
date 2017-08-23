@@ -24,7 +24,7 @@ kramdown:
     css_class: 'highlight'
 
 # Gems
-gems:
+plugins:
   - jekyll-feed
   - jekyll-mentions
   - jemoji
