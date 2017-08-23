@@ -51,6 +51,7 @@ layout: landing-page
 				-->
 
 				<!-- Two -->
+				<!--
 					<section class="wrapper style1 container special">
 						<div class="row">
 							<div class="4u">
@@ -97,11 +98,11 @@ layout: landing-page
 							</div>
 						</div>
 					</section>
-
+				-->
 				<!-- Three -->
-				<!--
-					<section class="wrapper style3 container special">
 
+					<section class="wrapper style3 container special">
+						<!--
 						<header class="major">
 							<h2>Next look at this <strong>cool stuff</strong></h2>
 						</header>
@@ -154,15 +155,26 @@ layout: landing-page
 
 							</div>
 						</div>
-
 						<footer class="major">
 							<ul class="buttons">
 								<li><a href="#" class="button">See More</a></li>
 							</ul>
 						</footer>
-
+					-->
+					<ul class="posts">
+	          {% for post in site.posts %}
+	            <li class="wrapper {% if forloop.first %} style2 {% else %} style1 {% endif %}">
+	              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	                {{ post.excerpt }}
+	                <section class="special">
+	                    <ul class="buttons">
+	                        <li><a href="{{ post.url }}" class="button">Read more</a></li>
+	                    </ul></section>
+	            </li>
+	          {% endfor %}
+	        </ul>
 					</section>
-				-->
+
 			</article>
 
 		<!-- CTA -->
