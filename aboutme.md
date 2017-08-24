@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: about
 title: About me
 subtitle: Why you'd want to go on a date with me
 image: https://btco.azureedge.net/gallery/Headshot-Rounded.png

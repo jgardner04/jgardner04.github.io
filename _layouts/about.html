@@ -1,0 +1,127 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{ content }}
+
+      <div>
+        <link rel="stylesheet" href="../css/demo/reset.css">
+        <link rel="stylesheet" href="../css/plugins/animate.min.css">
+        <!-- CSS Animation -->
+        <link rel="stylesheet" href="../css/default.min.css">
+        <!-- Resource style -->
+        <link rel="stylesheet" href="../css/demo/demo.css">
+        <link rel="stylesheet" href="../css/frst-timeline-style-9.css">
+        <!-- Resource style -->
+        <script src="../js/modernizr.js"></script>
+
+        <div class="frst-container" data-animation-name="ZoomIn">
+    		<!-- frst-left-align/frst-right-align/frst-alternate/frst-date-opposite/frst-responsive-right-->
+      		<div class="frst-timeline frst-timeline-style-9 frst-alternate">
+      			<div class="frst-timeline-block frst-odd-item" data-animation="zoomIn">
+      				<div class="frst-timeline-img">
+      					<span></span>
+      					<span class="step-text">Microsoft</span>
+      				</div>
+      				<!-- frst-timeline-img -->
+      				<div class="frst-timeline-content">
+      					<span class="connector"></span>
+      					<div class="frst-timeline-content-inner">
+                  <div class="media-section">
+      							<img src="https://assets.onestore.ms/cdnfiles/external/uhf/long/9a49a7e9d8e881327e81b9eb43dabc01de70a9bb/images/microsoft-gray.png" alt="">
+      						</div>
+      						<h2>Sr. Program Manager - AzureCAT</h2>
+      						<p>I work with Global System Integrator partners to provide architectural guidance and help with complex implementations. These project inevitably generate feedback that is necessary to make our products better and easier to use.
+      						</p>
+      					</div>
+      					<!-- frst-timeline-content-inner -->
+      				</div>
+      				<!-- frst-timeline-content -->
+      			</div>
+            <!-- frst-timeline-block -->
+      			<div class="frst-timeline-block frst-even-item" data-animation="zoomIn">
+      				<div class="frst-timeline-img">
+      					<span></span>
+      					<span class="step-text">Microsoft</span>
+      				</div>
+      				<!-- frst-timeline-img -->
+      				<div class="frst-timeline-content">
+      					<span class="connector"></span>
+      					<div class="frst-timeline-content-inner">
+      						<div class="media-section">
+      							<img src="https://assets.onestore.ms/cdnfiles/external/uhf/long/9a49a7e9d8e881327e81b9eb43dabc01de70a9bb/images/microsoft-gray.png" alt="">
+      						</div>
+      						<h2>Partner Technology Strategist</h2>
+      						<p>Worked with partners to educate and train them on the technical aspects of the Microsoft Azure platform. With specialization in Data, Analytics, and Application development I helped our partners architect solutions for their customers and helped them move their IP to cloud based solutions that could empower them to do more.
+      						</p>
+      					</div>
+      					<!-- frst-timeline-content-inner -->
+      				</div>
+      				<!-- frst-timeline-content -->
+      			</div>
+      			<!-- frst-timeline-block -->
+      			<div class="frst-timeline-block frst-odd-item" data-animation="zoomIn">
+      				<div class="frst-timeline-img">
+      					<span></span>
+      					<span class="step-text">Geocent</span>
+      				</div>
+      				<!-- frst-timeline-img -->
+      				<div class="frst-timeline-content">
+      					<span class="connector"></span>
+      					<div class="frst-timeline-content-inner">
+      						<div class="media-section">
+      							<img src="http://www.geocent.com/_layouts/15/images/SP.Geocent.Internet/logo.png" alt="">
+      						</div>
+                  <h2>Technical Account Manager</h2>
+      						<p>Managed technical delivery resources and handled technical sales.
+                  </p>
+      					</div>
+      					<!-- frst-timeline-content-inner -->
+      				</div>
+      				<!-- frst-timeline-content -->
+      			</div>
+      			<!-- frst-timeline-block -->
+      			<div class="frst-timeline-block frst-even-item" data-animation="zoomIn">
+      				<div class="frst-timeline-img">
+      					<span></span>
+      					<span class="step-text">Insource Technology</span>
+      				</div>
+      				<!-- frst-timeline-img -->
+      				<div class="frst-timeline-content">
+      					<span class="connector"></span>
+      					<div class="frst-timeline-content-inner">
+                  <div class="media-section">
+      							<img src="https://media.glassdoor.com/sqll/657363/insource-technology-squarelogo-1446028949044.png" alt="">
+      						</div>
+      						<h2>Technical Manager</h2>
+      						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis est sit amet augue aliquam vestibulum.
+      						</p>
+      					</div>
+      					<!-- frst-timeline-content-inner -->
+      				</div>
+      				<!-- frst-timeline-content -->
+      			</div>
+
+  		     <!-- frst-timeline-block -->
+    		  </div>
+  		      <!-- frst-timeline -->
+  	     </div>
+       </div>
+      {% if page.comments %}
+        <div class="disqus-comments">
+	        {% include disqus.html %}
+        </div>
+	    {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- #page-->
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/frst-timeline.min.js"></script>
+<!-- Resource jQuery -->
