@@ -2,7 +2,7 @@
 layout: post
 title:  "Inspire Presentation - Bots and AI"
 date:   2017-07-11 16:00:00
-categories: Azure
+categories: Presentation
 tags: [Bots, azure, AI]
 author: Jonathan
 ---
