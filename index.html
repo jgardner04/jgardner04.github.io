@@ -1,196 +1,61 @@
 ---
-layout: landing-page
+layout: page
+title: Nerd Stuff
+use-site-title: true
 ---
-		<!-- Main -->
-			<article id="main">
 
-				<header class="special container">
-					<span class="icon fa-bar-chart-o"></span>
-					<h2>Home for musings from Beyond the Corner Office</h2>
-					<br />
-					<h3>Silly name, good blog</h3>
-					<p>
-						In our experience the best ideas come from from the people closes to the action. It is with that understanding, those of us who write from this blog try to provide information that can help those closes to the action.
-					</p>
-					<p>
-						<h3><strong>Those out Beyond the Corner Office </strong></h3>
-					</p>
-				</header>
+<div class="posts-list">
+    {% for post in paginator.posts %}
+    <article class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">{{ post.title }}</h2>
 
-				<!-- One -->
-				<!--
-					<section class="wrapper style2 container special-alt">
-						<div class="row half">
-							<div class="8u">
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+        </a>
 
-								<header>
-									<h2>Behold the <strong>icons</strong> that visualize what you’re all about. or just take up space. your call bro.</h2>
-								</header>
-								<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p>
-								<footer>
-									<ul class="buttons">
-										<li><a href="#" class="button">Find Out More</a></li>
-									</ul>
-								</footer>
+        <p class="post-meta">
+            Posted on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
 
-							</div>
-							<div class="4u skel-cell-important">
+        <div class="post-entry-container">
+            {% if post.image %}
+            <div class="post-image">
+                <a href="{{ post.url | prepend: site.baseurl }}">
+                    <img src="{{ post.image }}">
+                </a>
+            </div>
+            {% endif %}
+            <div class="post-entry">
+                {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count = post.excerpt | number_of_words %} {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
+                <a href="{{ post.url | prepend: site.baseurl }}" class="post-read-more">[Read&nbsp;More]</a> {% endif %}
+            </div>
+        </div>
 
-								<ul class="featured-icons">
-									<li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
-									<li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
-									<li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
-									<li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
-									<li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
-									<li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
-								</ul>
+        {% if post.tags.size > 0 %}
+        <div class="blog-tags">
+            Tags: {% if site.link-tags %} {% for tag in post.tags %}
+            <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a> {% endfor %} {% else %} {{ post.tags | join: ", " }} {% endif %}
+        </div>
+        {% endif %}
 
-							</div>
-						</div>
-					</section>
-				-->
+    </article>
+    {% endfor %}
+</div>
 
-				<!-- Two -->
-				<!--
-					<section class="wrapper style1 container special">
-						<div class="row">
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Blog</h3>
-									</header>
-									<p>On our blog, we cover many technology topics but we focus heavily on topics that involve Microsoft Azure since this is my focus at work. </p>
-									<ul class="buttons">
-										<li><a href="/blog.html" class="button">Blog</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Photography</h3>
-									</header>
-									<p>Jonathan is an avid photographer and you will find much of his work throughout this site. More of his work can be found in his portfolio.</p>
-									<ul class="buttons">
-										<li><a href="http://www.jonathanagardner.com" class="button">Portfolio</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Contact</h3>
-									</header>
-									<p>We want to hear from you. Comment on our posts, contact us from the site, or follow us on <a href="https://Twitter.com/jgardner04" target="_blank">Twitter</a>. We will follow up with you however you contact us.</p>
-									<ul class="buttons">
-										<li><a href="/contact.html" class="button">Contact</a></li>
-									</ul>
-								</section>
-
-							</div>
-						</div>
-					</section>
-				-->
-				<!-- Three -->
-
-					<section class="wrapper style3 container special">
-						<!--
-						<header class="major">
-							<h2>Next look at this <strong>cool stuff</strong></h2>
-						</header>
-
-						<div class="row">
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<header>
-										<h3>A Really Fast Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-									<header>
-										<h3>An Airport Terminal</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-						</div>
-						<div class="row">
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-									<header>
-										<h3>Hyperspace Travel</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-									<header>
-										<h3>And Another Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-						</div>
-						<footer class="major">
-							<ul class="buttons">
-								<li><a href="#" class="button">See More</a></li>
-							</ul>
-						</footer>
-					-->
-					<ul class="posts">
-	          {% for post in site.posts %}
-	            <li class="wrapper {% if forloop.first %} style2 {% else %} style1 {% endif %}">
-	              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-	                {{ post.excerpt }}
-	                <section class="special">
-	                    <ul class="buttons">
-	                        <li><a href="{{ post.url }}" class="button">Read more</a></li>
-	                    </ul></section>
-	            </li>
-	          {% endfor %}
-	        </ul>
-					</section>
-
-			</article>
-
-		<!-- CTA -->
-		<!--
-			<section id="cta">
-
-				<header>
-					<h2>Ready to do <strong>something</strong>?</h2>
-					<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
-				</header>
-				<footer>
-					<ul class="buttons">
-						<li><a href="#" class="button special">Take My Money</a></li>
-						<li><a href="#" class="button">LOL Wut</a></li>
-					</ul>
-				</footer>
-
-			</section>
-		-->
+{% if paginator.total_pages > 1 %}
+<ul class="pager main-pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %} {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}

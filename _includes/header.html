@@ -1,20 +1,76 @@
-<header id="header">
-				<h1 id="logo"><a href="/">Beyond <span> the Corner Office</span></a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="/blog.html">Blog</a></li>
-						<li><a href="http://www.jonathanagardner.com" target="_blank">Photography</a></li>
-						<li><a href="/about.html">About</a>
-						<!-- <li class="submenu">
-							<a href="">About</a>
-							<ul>
-								<li><a href="/left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="/right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="/no-sidebar.html">No Sidebar</a></li>
-								<li><a href="/contact.html">Contact</a></li>
-							</ul>
-						</li> -->
-						<li><a href="/contact.html" class="button special">Contact</a></li>
-					</ul>
-				</nav>
-			</header>
+<!-- TODO this file has become a mess, refactor it -->
+
+{% if page.bigimg or page.title %}
+
+{% if page.bigimg %}
+  <div id="header-big-imgs" data-num-img={% if page.bigimg.first %}{{ page.bigimg.size }}{% else %}1{% endif %}
+    {% for bigimg in page.bigimg %}
+	  {% assign imgnum = forloop.index %}
+	  {% for imginfo in bigimg %}
+	    {% if imginfo[0] %}
+		  data-img-src-{{ imgnum }}="{{ imginfo[0] | prepend: site.baseurl | replace: '//', '/' }}"
+		  data-img-desc-{{ imgnum }}="{{ imginfo[1] }}"
+		{% else %}
+		  data-img-src-{{ imgnum }}="{{ imginfo | prepend: site.baseurl | replace: '//', '/' }}"
+		{% endif %}
+	  {% endfor %}
+    {% endfor %}
+  ></div>
+{% endif %}
+
+<header class="header-section {% if page.bigimg %}has-img{% endif %}">
+{% if page.bigimg %}
+<div class="big-img intro-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="{{ include.type }}-heading">
+          <h1>{% if page.title %}{{ page.title }}{% else %}<br/>{% endif %}</h1>
+		  {% if page.subtitle %}
+		    {% if include.type == "page" %}
+            <hr class="small">
+            <span class="{{ include.type }}-subheading">{{ page.subtitle }}</span>
+			{% else %}
+			<h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
+			{% endif %}
+		  {% endif %}
+		  
+		  {% if include.type == "post" %}
+		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+		  {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+{% endif %}
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="{{ include.type }}-heading">
+          <h1>{% if page.title %}{{ page.title }}{% else %}<br/>{% endif %}</h1>
+		  {% if page.subtitle %}
+		    {% if include.type == "page" %}
+            <hr class="small">
+            <span class="{{ include.type }}-subheading">{{ page.subtitle }}</span>
+			{% else %}
+			<h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
+			{% endif %}
+		  {% endif %}
+		  
+		  {% if include.type == "post" %}
+		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+		  {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+{% else %}
+<div class="intro-header"></div>
+{% endif %}

@@ -2,13 +2,11 @@
 layout: post
 title:  "New Blog, New Role"
 date:   2017-06-03 10:00:00
-comments: true
 tags: [blog]
 author: Jonathan
+bigimg: https://btco.azureedge.net/gallery-1600/DeathtoStock_Wired4-1600.jpg
 ---
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/DeathtoStock_Wired4-1600.jpg" alt=""></span>
 
-## The new Gig
 A new blog and a new role here at Microsoft. Starting today I am joining the [Azure Customer Advisory Team](//blogs.msdn.microsoft.com/azurecat/2017/01/05/hello-world-welcome-to-azurecat-guidance/#pnp). I am excited for the challenge and look forward to learning from wealth of experience hard won working on some of the most challenging and innovative customer solutions. I hope to be able to add to the reputation the team has earned over the years. In my new role, I will be working with Global Systems Integrators(GSI) partners to provide architectural guidance and assistance with complex Azure implementations. The feedback we get from these projects will be provided as direct feedback to the engineering groups to help our products get even better.
 
 ## The new Blog

@@ -2,14 +2,11 @@
 layout: post
 title:  "Shutdown Tagged VMs with Azure Automation"
 date:   2016-04-21 16:00:00
-comments: true
 categories: Azure
 tags: [azure, automation]
 author: Jonathan
+bigimg: https://btco.azureedge.net/gallery-1600/AdobeStock_97576601-1600.jpeg
 ---
-
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_97576601-1600.jpeg" alt=""></span>
-
 In my previous post PowerShell to update the tags on resources, I added tags to the virtual machines in my subscription.  There are a host of reasons why resources may be tagged in Azure.  I have seen customers use them to identify the department or application resources belong to.  I have seen partners use tags for billing by tagging resources by customers.  The use varies but as a huge fan of automation I am going to use them to automate tasks against my virtual machines.  In this post I will use tags in conjunction with Azure Automation to shutdown virtual machines at the end of the day.
 
 ***Note: This article makes the assumption that you are familiar with the Azure portal.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.  I also am not going to cover the movement of the file from one blob to another, I will do that in a separate post.***

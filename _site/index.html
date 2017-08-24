@@ -1,319 +1,578 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <!--
-	Twenty by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+  <title>Beyond the Corner Office - A Jonathan Gardner Blog</title>
 
-<head>
-    <title>Beyond the Corner Office</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="Technology musings from Beyond the Corner Office. A Jonathan Gardner blog where all things cloud are discussed.
-">
-    <meta name="keywords" content="">
+  <meta name="author" content="Jonathan Gardner" />
 
-    <noscript>
-        <link rel="stylesheet" href="/css/skel.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/style-wide.css">
-        <link rel="stylesheet" href="/css/style-noscript.css">
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
-    <meta name="viewport" content="width=device-width">
+  
 
-    <link rel="canonical" href="http://0.0.0.0:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Beyond the Corner Office - A Jonathan Gardner Blog" href="/feed.xml" />
 
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Nerd Stuff" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://0.0.0.0:4000/" />
+  <link rel="canonical" href="http://0.0.0.0:4000/" />
+  
+
+  
+  <meta property="og:image" content="http://0.0.0.0:4000https://btco.azureedge.net/gallery/Headshot-Rounded.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@jgardner04" />
+  <meta name="twitter:creator" content="@jgardner04" />
+
+  
+  <meta name="twitter:title" content="Nerd Stuff" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://0.0.0.0:4000https://btco.azureedge.net/gallery/Headshot-Rounded.png" />
+  
 
 </head>
 
 
-  <body class="index">
+  <body>
 
-    <header id="header">
-				<h1 id="logo"><a href="/">Beyond <span> the Corner Office</span></a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="/blog.html">Blog</a></li>
-						<li><a href="http://www.jonathanagardner.com" target="_blank">Photography</a></li>
-						<li>
-<a href="/about.html">About</a>
-						<!-- <li class="submenu">
-							<a href="">About</a>
-							<ul>
-								<li><a href="/left-sidebar.html">Left Sidebar</a></li>
-								<li><a href="/right-sidebar.html">Right Sidebar</a></li>
-								<li><a href="/no-sidebar.html">No Sidebar</a></li>
-								<li><a href="/contact.html">Contact</a></li>
-							</ul>
-						</li> -->
-						</li>
-<li><a href="/contact.html" class="button special">Contact</a></li>
-					</ul>
-				</nav>
-			</header>
-
-    <!-- Banner -->
-<section id="banner">
-
-    <!--
-        ".inner" is set up as an inline-block so it automatically expands
-        in both directions to fit whatever's inside it. This means it won't
-        automatically wrap lines, so be sure to use line breaks where
-        appropriate (<br />).
-    -->
-    <div class="inner">
-
-        <header>
-            <h2>BEYOND</h2>
-        </header>
-        <p>Ideas from <strong>BEYOND</strong>, the
-        <br>
-        Corner Office
-        <br>
-        <footer>
-            <ul class="buttons vertical">
-                <li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
-            </ul>
-        </footer>
-
-    </p>
-</div>
-
-</section>
-
-
-    <div class="page-content">
-        		<!-- Main -->
-			<article id="main">
-
-				<header class="special container">
-					<span class="icon fa-bar-chart-o"></span>
-					<h2>Home for musings from Beyond the Corner Office</h2>
-					<br>
-					<h3>Silly name, good blog</h3>
-					<p>
-						In our experience the best ideas come from from the people closes to the action. It is with that understanding, those of us who write from this blog try to provide information that can help those closes to the action.
-					</p>
-					<p>
-						</p>
-<h3><strong>Those out Beyond the Corner Office </strong></h3>
-					
-				</header>
-
-				<!-- One -->
-				<!--
-					<section class="wrapper style2 container special-alt">
-						<div class="row half">
-							<div class="8u">
-
-								<header>
-									<h2>Behold the <strong>icons</strong> that visualize what you’re all about. or just take up space. your call bro.</h2>
-								</header>
-								<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.</p>
-								<footer>
-									<ul class="buttons">
-										<li><a href="#" class="button">Find Out More</a></li>
-									</ul>
-								</footer>
-
-							</div>
-							<div class="4u skel-cell-important">
-
-								<ul class="featured-icons">
-									<li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
-									<li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
-									<li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
-									<li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
-									<li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
-									<li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
-								</ul>
-
-							</div>
-						</div>
-					</section>
-				-->
-
-				<!-- Two -->
-					<section class="wrapper style1 container special">
-						<div class="row">
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Blog</h3>
-									</header>
-									<p>On our blog, we cover many technology topics but we focus heavily on topics that involve Microsoft Azure since this is my focus at work. </p>
-									<ul class="buttons">
-										<li><a href="/blog.html" class="button">Blog</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Photography</h3>
-									</header>
-									<p>Jonathan is an avid photographer and you will find much of his work throughout this site. More of his work can be found in his portfolio.</p>
-									<ul class="buttons">
-										<li><a href="http://www.jonathanagardner.com" class="button">Portfolio</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="4u">
-
-								<section>
-									<span class="icon featured fa-check"></span>
-									<header>
-										<h3>Contact</h3>
-									</header>
-									<p>We want to hear from you. Comment on our posts, contact us from the site, or follow us on <a href="https://Twitter.com/jgardner04" target="_blank">Twitter</a>. We will follow up with you however you contact us.</p>
-									<ul class="buttons">
-										<li><a href="/contact.html" class="button">Contact</a></li>
-									</ul>
-								</section>
-
-							</div>
-						</div>
-					</section>
-
-				<!-- Three -->
-				<!--
-					<section class="wrapper style3 container special">
-
-						<header class="major">
-							<h2>Next look at this <strong>cool stuff</strong></h2>
-						</header>
-
-						<div class="row">
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<header>
-										<h3>A Really Fast Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-									<header>
-										<h3>An Airport Terminal</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-						</div>
-						<div class="row">
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-									<header>
-										<h3>Hyperspace Travel</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-							<div class="6u">
-
-								<section>
-									<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-									<header>
-										<h3>And Another Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</section>
-
-							</div>
-						</div>
-
-						<footer class="major">
-							<ul class="buttons">
-								<li><a href="#" class="button">See More</a></li>
-							</ul>
-						</footer>
-
-					</section>
-				-->
-			</article>
-
-		<!-- CTA -->
-		<!--
-			<section id="cta">
-
-				<header>
-					<h2>Ready to do <strong>something</strong>?</h2>
-					<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
-				</header>
-				<footer>
-					<ul class="buttons">
-						<li><a href="#" class="button special">Take My Money</a></li>
-						<li><a href="#" class="button">LOL Wut</a></li>
-					</ul>
-				</footer>
-
-			</section>
-		-->
-
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://0.0.0.0:4000">Beyond the Corner Office</a>
+      
     </div>
 
-    <!-- Footer -->
-<footer id="footer">
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <ul class="icons">
-        <li><a href="https://twitter.com/jgardner04" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-        <li><a href="https://www.facebook.com/jonathanagardnerphotography/" class="icon circle fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
-        <li><a href="https://plus.google.com/u/0/+JonathanGardner2004" class="icon circle fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
-        <li><a href="https://github.com/jgardner04" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
-        <!--
-        <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-        -->
-    </ul>
 
-    <ul class="copyright">
-        <li>© Beyond the Corner Office</li>
-<li>Design: <a href="http://html5up.net">HTML5 UP</a>
-</li>
-    </ul>
 
-    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.dropotron.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/jquery.scrollgress.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/skel-layers.min.js"></script>
-    <script src="/js/init.js"></script>
 
-    <!-- Application Insights -->
-    <script type="text/javascript">
-    var appInsights=window.appInsights||function(config){
-        function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-    }({
-        instrumentationKey: "46f6a2ab-4acc-49ca-8831-2a63b5b4f2f9"
-    });
 
-    window.appInsights = appInsights;
-    appInsights.trackPageView();
-    </script>
+<a href="/aboutme">About Me</a>
 
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="https://github.com/jgardner04">GitHub</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="http://www.jonathanagardner.com">Author's Portfolio</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://0.0.0.0:4000 ">
+	      <img class="avatar-img" src="https:/btco.azureedge.net/gallery/Headshot-Rounded.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-heading">
+          <h1>Nerd Stuff</h1>
+		  
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+    
+    <article class="post-preview">
+        <a href="/2017-08-22-Bash-Profile/">
+            <h2 class="post-title">Bash Profile</h2>
+
+            
+        </a>
+
+        <p class="post-meta">
+            Posted on August 22, 2017
+        </p>
+
+        <div class="post-entry-container">
+            
+            <div class="post-entry">
+                I have been using a MacBook Pro as my primary work computer for about 6 months now. As a developer, photographer, and video editor I have have always been partial to them in my personal life. I have been spending more and more time in the Terminal app then ever...  
+                <a href="/2017-08-22-Bash-Profile/" class="post-read-more">[Read&nbsp;More]</a> 
+            </div>
+        </div>
+
+        
+        <div class="blog-tags">
+            Tags:  mac, terminal, developer 
+        </div>
+        
+
+    </article>
+    
+    <article class="post-preview">
+        <a href="/2017-07-11-Inspire-Presentation/">
+            <h2 class="post-title">Inspire Presentation - Bots and AI</h2>
+
+            
+        </a>
+
+        <p class="post-meta">
+            Posted on July 11, 2017
+        </p>
+
+        <div class="post-entry-container">
+            
+            <div class="post-entry">
+                
+
+  
+                <a href="/2017-07-11-Inspire-Presentation/" class="post-read-more">[Read&nbsp;More]</a> 
+            </div>
+        </div>
+
+        
+        <div class="blog-tags">
+            Tags:  Bots, azure, AI 
+        </div>
+        
+
+    </article>
+    
+    <article class="post-preview">
+        <a href="/2017-06-03-new-role-new-blog/">
+            <h2 class="post-title">New Blog, New Role</h2>
+
+            
+        </a>
+
+        <p class="post-meta">
+            Posted on June 3, 2017
+        </p>
+
+        <div class="post-entry-container">
+            
+            <div class="post-entry">
+                A new blog and a new role here at Microsoft. Starting today I am joining the Azure Customer Advisory Team. I am excited for the challenge and look forward to learning from wealth of experience hard won working on some of the most challenging and innovative customer solutions. I hope...  
+                <a href="/2017-06-03-new-role-new-blog/" class="post-read-more">[Read&nbsp;More]</a> 
+            </div>
+        </div>
+
+        
+        <div class="blog-tags">
+            Tags:  blog 
+        </div>
+        
+
+    </article>
+    
+    <article class="post-preview">
+        <a href="/2016-07-22-Advanced-VM-ARM-Template/">
+            <h2 class="post-title">Advanced Azure ARM Template</h2>
+
+            
+        </a>
+
+        <p class="post-meta">
+            Posted on July 22, 2016
+        </p>
+
+        <div class="post-entry-container">
+            
+            <div class="post-entry">
+                As you have seen, I have been doing quite a bit of work with ARM templates and VMs recently. This post is no different. I have been working on a project where multiple VMs need to be created from a custom image and they need to be joined to an...  
+                <a href="/2016-07-22-Advanced-VM-ARM-Template/" class="post-read-more">[Read&nbsp;More]</a> 
+            </div>
+        </div>
+
+        
+        <div class="blog-tags">
+            Tags:  azure, automation, arm, virtual machines 
+        </div>
+        
+
+    </article>
+    
+    <article class="post-preview">
+        <a href="/2016-04-26-Azure-Resource-Manager-Templates-Custom-Script-Extensions/">
+            <h2 class="post-title">Azure Resource Manager Template Custom Script Extensions</h2>
+
+            
+        </a>
+
+        <p class="post-meta">
+            Posted on April 26, 2016
+        </p>
+
+        <div class="post-entry-container">
+            
+            <div class="post-entry">
+                In my previous article, Building Azure Resource Manager Templates , I covered how to get started with Azure Resource Manager templates. While they are certainly great for basic deployments, where they really shine is in their ability to allow for complex deployments. This post will cover the Custom Script Extension...  
+                <a href="/2016-04-26-Azure-Resource-Manager-Templates-Custom-Script-Extensions/" class="post-read-more">[Read&nbsp;More]</a> 
+            </div>
+        </div>
+
+        
+        <div class="blog-tags">
+            Tags:  azure 
+        </div>
+        
+
+    </article>
+    
+</div>
+
+
+<ul class="pager main-pager">
+     
+    <li class="next">
+        <a href="/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          <li>
+            <a href="https://www.facebook.com/jgardner04" title="Facebook">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Facebook</span>
+            </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://github.com/jgardner04" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/jgardner04" title="Twitter">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          
+	  
+          <li>
+            <a href="https://reddit.com/u/jgardner04" title="Reddit">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-reddit fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Reddit</span>
+            </a>
+          </li>
+          
+      
+          <li>
+            <a href="https://plus.google.com/+JonathanGardner2004" title="Google+">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Google+</span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:jonathan@beyondthecorneroffice.com" title="Email me">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Email me</span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/in/jonathangardner" title="LinkedIn">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          
+		  
+		  
+          <li>
+            <a href="https://stackoverflow.com/users/90641/jgardner04" title="StackOverflow">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">StackOverflow</span>
+            </a>
+          </li>
+          
+      
+      
+          <li>
+            <a href="https://www.instagram.com/jgardner04" title="Instagram">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Instagram</span>
+            </a>
+          </li>
+          
+      
+          <li>
+            <a href="https://www.youtube.com/channel/UCrI0UEMTgPZ9fjTXOqPTtfQ" title="YouTube">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">YouTube</span>
+            </a>
+          </li>
+          
+      
+          <li>
+            <a href="https://open.spotify.com/user/12129767300" title="Spotify">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-spotify fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Spotify</span>
+            </a>
+          </li>
+       
+      
+		  
+          <li>
+            <a href="/feed.xml" title="RSS">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+          </li>
+          
+      
+      
+      
+        </ul>
+        <p class="copyright text-muted">
+		  Jonathan Gardner
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://0.0.0.0:4000">BeyondTheCornerOffice.com</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
+  
+    
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-3178799-4', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+  
   </body>
-
 </html>

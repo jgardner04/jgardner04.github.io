@@ -2,13 +2,11 @@
 layout: post
 title:  "Azure Resource Manager Template Custom Script Extensions"
 date:   2016-04-26 16:00:00
-comments: true
 categories: Azure
 tags: azure
 author: Jonathan
+bigimg: https://btco.azureedge.net/gallery-1600/AdobeStock_99956429-1600.jpeg
 ---
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_99956429-1600.jpeg" alt=""></span>
-
 In my previous article, Building Azure Resource Manager Templates , I covered how to get started with Azure Resource Manager templates.  While they are certainly great for basic deployments, where they really shine is in their ability to allow for complex deployments.  This post will cover the Custom Script Extension and how they can be used to configure Virtual Machines during the deployment process. ***Note: This article makes the assumption that you are familiar with the Azure portal and Visual Studio.  I am not writing a full step-by-step article.  While I will outline all of the things that need to happen, I am not doing a “click here” walk-through.***
 
 # The Setup

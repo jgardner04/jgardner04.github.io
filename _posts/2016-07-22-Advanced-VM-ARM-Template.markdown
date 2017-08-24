@@ -2,13 +2,11 @@
 layout: post
 title:  "Advanced Azure ARM Template"
 date:   2016-07-22 16:00:00
-comments: true
 categories: Azure
 tags: [azure, automation, arm, virtual machines]
 author: Jonathan
+bigimg: https://btco.azureedge.net/gallery-1600/AdobeStock_61327476-1600.jpeg
 ---
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_61327476-1600.jpeg" alt=""></span>
-
 As you have seen, I have been doing quite a bit of work with ARM templates and VMs recently.  This post is no different.  I have been working on a project where multiple VMs need to be created from a custom image and they need to be joined to an existing domain.  In this post I will walk through the elements of the ARM template I created. **NOTE: This template is not based on any best practices, simply a proof of concept**
 
 Tl;dr - Grab the template from my [GitHub account](//github.com/jgardner04/ARM-Templates/tree/master/domainJoinedCustomImage).

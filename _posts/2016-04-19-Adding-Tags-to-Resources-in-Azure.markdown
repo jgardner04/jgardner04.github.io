@@ -2,13 +2,11 @@
 layout: post
 title:  "Adding Tags to Resources in Azure"
 date:   2016-04-12 16:00:00
-comments: true
 categories: Azure
 tags: azure
 author: Jonathan
+bigimg: https://btco.azureedge.net/gallery-1600/AdobeStock_102187112-1600.jpeg
 ---
-<span class="image featured"><img src="//btco.azureedge.net/gallery-1600/AdobeStock_102187112-1600.jpeg" alt=""></span>
-
 I am always looking for ways to automate my Azure environment.  I use Azure as a Demo and Testing environment and do not want it running 24/7 and shutting off each virtual machine at the end of a day is time consuming.  I want to have Azure Automation do that for me.  I am working on a post to show just how to do that but the first step was to set a tag on the virtual machines that I wanted to shut down.  In this post I will walk through setting up tags for virtual machines in Azure with PowerShell. Organizing my resources by tags gives me the flexibility of applying them across resource group and allowing me to automate them across my entire subscription.  Tags can be applied in the portal but with multiple virtual machines in an environment, that is a time consuming proposition.  The smarter approach is to apply them systematically through PowerShell.  In this short post I will share the script I used to apply tags to my virtual machines.
 
 ## The Business

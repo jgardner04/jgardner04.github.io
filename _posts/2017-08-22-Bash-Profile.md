@@ -2,12 +2,10 @@
 layout: post
 title:  "Bash Profile"
 date:   2017-08-22 16:00:00
-comments: true
 categories: Tech
 tags: [mac, terminal, developer]
 author: Jonathan
 ---
-
 I have been using a MacBook Pro as my primary work computer for about 6 months now. As a developer, photographer, and video editor I have have always been partial to them in my personal life. I have been spending more and more time in the Terminal app then ever before. I have never really thought much about customizing my Bash Profile before I was trying to do Docker and Git auto-completion. After seeing a few examples, I started working on my own. If you want to jump straight to download the profile you can do that on [GitHub](https://gist.github.com/jgardner04/6f1d85851d0698edb3ac183ad50ff91d).
 
 ## Getting Started
@@ -201,6 +199,6 @@ The rest of the code adds functionality to the terminal that makes things a litt
           #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
           echo
       }
-      
+
 ```
 Do you have a custom Bash profile? I would love to see some of the things that you find useful in the comments below. If you find this content useful, be sure to follow me on [Twitter](https://twitter.com/jgardner04) or follow my [RSS feed](http://www.beyondthecorneroffice.com/feed.xml).

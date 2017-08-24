@@ -2,12 +2,11 @@
 layout: post
 title:  "Inspire Presentation - Bots and AI"
 date:   2017-07-11 16:00:00
-comments: true
 categories: Azure
 tags: [Bots, azure, AI]
 author: Jonathan
 ---
-<span class="image featured"><img src="//btco.azureedge.net/presentations/AIPresentation.jpg" alt=""></span>
+![](//btco.azureedge.net/presentations/AIPresentation.jpg)
 
 This week I had a chance to lead a small group discussion on Bots and Artificial intelligence at the [Microsoft Inspire Partner Conference](//partner.microsoft.com/en-us/inspire). Some people were interested in my slides so I have included a link to the slides [here](//btco.azureedge.net/presentations/AIPresentation.pptx). During that discussion, we covered an overview of [Bots](//dev.botframework.com/) and the [Cognitive Services APIs](//azure.microsoft.com/en-us/services/cognitive-services/). I left that discussion with a few items that needed further discussion or clarification. In this post I will cover those topics.
 
