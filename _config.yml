@@ -25,6 +25,8 @@ description: A Jonathan Gardner Blog
 navbar-links:
   About: "aboutme"
   Resources:
+    - Speaking: "speaking"
+    - Publication: "publication"
     - GitHub: "https://github.com/jgardner04"
   Photography: "http://www.jonathanagardner.com"
 
