@@ -6,8 +6,8 @@ categories: Technology
 tags: [PowerShell]
 author: Jonathan
 sharing:
-  twitter: Blogged: My PowerShell profile.
-  linkedin: Blogged: My PowerShell profile. 
+  twitter: My PowerShell profile.
+  linkedin: My PowerShell profile.
 ---
 While I am using MacOS as my primary machine I spend a lot of time moving between OS X and Windows. Having grown used to many of the customizations I implemented in Bash, I began looking for a way to get them into PowerShell. Beyond just the time saving efforts, I was also interested in gaining some command parity. In this post I will outline my Profile and Scoop, the tool I use to add some Linux commands to Windows like `sudo`
 
