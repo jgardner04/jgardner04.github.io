@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "PowerShell Profile"
-date:   2017-08-25 16:00:00
+date:   2017-08-31 16:00:00
 categories: Technology
 tags: [PowerShell]
 author: Jonathan
@@ -9,12 +9,12 @@ sharing:
   twitter: My PowerShell profile.
   linkedin: My PowerShell profile.
 ---
-While I am using MacOS as my primary machine I spend a lot of time moving between OS X and Windows. Having grown used to many of the customizations I implemented in Bash, I began looking for a way to get them into PowerShell. Beyond just the time saving efforts, I was also interested in gaining some command parity. In this post I will outline my Profile and Scoop, the tool I use to add some Linux commands to Windows like `sudo`
+While I am using MacOS as my primary machine, I spend a lot of time moving between OS X and Windows. I have grown used to many of the customizations I implemented in Bash. I began looking for a way to get them into PowerShell. Beyond just the time saving efforts, I was also interested in gaining some command parity. In this post I will outline my Profile and Scoop, the tool I use to add some Linux commands to Windows like `sudo`
 
 ![](https://laughingsquid.com/wp-content/uploads/sudo-sandwich.png)
 
 ## Scoop, the Missing Package Installer
-Much like Homebrew, Scoop allows for the command-line installation of packages including the one I use for the customization of the PowerShell terminal itself. A few of the packages that I use every day are:
+Much like [Homebrew](https://brew.sh/) on MacOS, Scoop allows for the command-line installation of packages including the one I use for the customization of the PowerShell terminal itself. A few of the packages that I use every day are:
   * sudo
   * 7zip
   * openssh
@@ -29,7 +29,7 @@ To customize PowerShell I use the following packages:
   * Pshazz - Pshazz puts a little life into the Shell helping decorate the Shell windows. It adds Git tab completion and puts the Git branch in the command prompt so I can always see what branch I'm working on and its status.
 
 ## Customizing $PROFILE
-If your favorite editor supports command line execution, to edit your PowerShell profile you can open the PowerShell windows and type `EDITORNAME $profile`. For me, I use [VS Code](https://code.visualstudio.com/) so that means I open PowerShell and type `code $profile`. If you wanted you use one of the Scoop packages that you just installed, you can use `vi $profile`. Because I had installed Pshazz I already had an entry in in my profile so I just added to it. In the rest of this post, I will walk through some of the things that I have addded to my profile but if you prefer to just get the code, I have posted it in a [GitHub Gist](https://gist.github.com/jgardner04/2f848eec0972dd6062423a0f5af88b4b)
+If your favorite editor supports command line execution, to edit your PowerShell profile you can open the PowerShell windows and type `EDITORNAME $profile`. For me, I use [VS Code](https://code.visualstudio.com/) so that means I open PowerShell and type `code $profile`. If you wanted you use one of the Scoop packages that you just installed, you can use `vi $profile`. Because I had installed Pshazz I already had an entry in in my profile so I just added to it. In the rest of this post, I will walk through some of the things that I have added to my profile but if you prefer to just get the code, I have posted it in a [GitHub Gist](https://gist.github.com/jgardner04/2f848eec0972dd6062423a0f5af88b4b)
 
 ### Docker Tab completion
 I am a fan of tab completion in the shell so I add a package called posh-docker to my profile so it loads when I open PoSH. You can get more information on the package from the [Official Docker Documentation](https://docs.docker.com/docker-for-windows/#set-up-tab-completion-in-powershell).
