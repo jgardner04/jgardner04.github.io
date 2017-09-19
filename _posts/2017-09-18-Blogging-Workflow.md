@@ -28,7 +28,7 @@ GitHub has served as the primary repo location for my blog but I am also using [
 ## Docker
 In the workflow above you won't see Docker involved. But I do use it to test my site locally. In the local repo for [this site](https://github.com/jgardner04/jgardner04.github.io) there is a docker-compose.yml file, code below, running this with the command `docker-compose up` will run a container and mount the local drive making the site accessible via http://localhost:4000. Using Docker in this way allows me to work on my site in [Atom](http://atom.io) or [VSCode](https://code.visualstudio.com/) and see the updates directly on my local machine.
 
-`
+```Docker
 jekyll:
     image: jekyll/jekyll:pages
     command: jekyll serve --watch --incremental --force_polling
@@ -36,6 +36,6 @@ jekyll:
         - 4000:4000
     volumes:
         - .:/srv/jekyll
-`
+```
 
 If you are using Jekyll, what is your workflow? I would love to hear about it in the comments below. If you like this content or that of the blog please share it and follow me on [Twitter](https://twitter.com/jgardner04).
