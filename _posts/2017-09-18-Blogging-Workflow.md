@@ -6,7 +6,7 @@ categories: Technology
 tags: [Jekyll, Docker, Git]
 author: Jonathan
 sharing:
-  twitter: "My Blogging Workflow #blogging #jekyll" .
+  twitter: "My Blogging Workflow #blogging #jekyll"
   linkedin: My PowerShell profile.
 ---
 I have gone in cycles regarding with how I blog. In the past I have hosted my blog on Wordpress, Squarespace, Posterous, and a host of other platforms. I have never found a host or workflow that has really fit the way I like to write. Recently, I again changed the way I am hosting my site but I feel that I finally found a combination that fits the way that I work. In this post I will cover how I have changed my blog to adapt better to my writing style.
