@@ -10,13 +10,15 @@ sharing:
   linkedin: Running MongoDB on Windows with Docker profile.
 ---
 
-I have been doing more and more VueJS development in my spare time and with that naturally comes the desire to explore MongoDB. What better way to do that than in a Docker container. After all, the promise of containers is that I can run this and throw it away when I am done. I can also set it up to run only when I am working on my project, it does not have to be running all the time. I wanted my data to hang around so I didn't have to recreate it every time so I ran:
+I have been doing more VueJS development in my spare time and with that naturally comes the desire to explore MongoDB. What better way to do that than in a Docker container. After all, the promise of containers is that I can run this and throw it away when I am done. I can also set it up to run only when I am working on my project, it does not have to be running all the time. I did however, want my data to hang around so I didn't have to recreate it every time I fired up my container. This is a great case for mounted volumes, so I ran:
 
 ```PowerShell
 docker run -d -p 27017:27017 -v c:/data/mongo:/data/db mongo
 ```
 
-Low and behold when I ran `docker ps` I didn't see my container. Digging into the logs I found the following output:
+tl;dr - Use WSL to run Docker with the Linux style mount points `/mnt/c/data/mongo`.
+
+Low and behold, when I ran `docker ps` I didn't see my container. Digging into the logs I found the following output:
 
 ```bash
 PS C:\Users\jogardn> docker logs 2060a
@@ -39,13 +41,15 @@ PS C:\Users\jogardn> docker logs 2060a
 2018-04-18T19:45:34.180+0000 I CONTROL  [initandlisten] shutting down with code:100
 ```
 
-I started investigating and sure enough on the [official MongoDB Docker](https://hub.docker.com/_/mongo/) image file documentation it says that Windows won't work.
+I started investigating, and sure enough on the [official MongoDB Docker](https://hub.docker.com/_/mongo/) image file documentation it says that Windows won't work.
 
 > WARNING (Windows & OS X): The default Docker setup on Windows and OS X uses a VirtualBox VM to host the Docker daemon. Unfortunately, the mechanism VirtualBox uses to share folders between the host system and the Docker container is not compatible with the memory mapped files used by MongoDB (see vbox bug, docs.mongodb.org and related jira.mongodb.org bug). This means that it is not possible to run a MongoDB container with the data directory mapped to the host.
 
 ## The Business
 
-Well that won't do at all. Not being one who likes to take this as an answer I fired up Windows Subsystem for Linux, WSL for short. WSL makes Windows executable files available from the shell. Example: open your favorite WSL distro and run `Explorer.exe .`. It should open up a Windows File Explorer windows for the directory you are in. With a touch of configuration you can get this working for Docker as well. I encourage you to check out [Tomas Lycken's post](https://blog.jayway.com/2017/04/19/running-docker-on-bash-on-windows/) for more details or if you are using a pre Windows 10 Creators Update release on getting Docker configured in WSL.
+Well that won't do at all. Not being one who likes to take this as an answer, I fired up Windows Subsystem for Linux, WSL for short. WSL makes Windows executable files available from the shell. Example: open your favorite WSL distro and run `Explorer.exe .`. It should open up a Windows File Explorer windows for the directory you are in.
+
+With a touch of configuration you can get this working for Docker as well. I encourage you to check out [Tomas Lycken's post](https://blog.jayway.com/2017/04/19/running-docker-on-bash-on-windows/) for more details or if you are using a pre Windows 10 Creators Update release on getting Docker configured in WSL.
 
 If you are running the latest release of Win10 you need to edit the `.bashrc` file by adding the following lines and reloading your shell.
 
