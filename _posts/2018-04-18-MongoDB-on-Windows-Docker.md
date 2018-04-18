@@ -16,7 +16,7 @@ I have been doing more VueJS development in my spare time and with that naturall
 docker run -d -p 27017:27017 -v c:/data/mongo:/data/db mongo
 ```
 
-tl;dr - Use WSL to run Docker with the Linux style mount points `/mnt/c/data/mongo`.
+_tl;dr_ - Use WSL to run Docker with the Linux style mount points `/mnt/c/data/mongo`.
 
 Low and behold, when I ran `docker ps` I didn't see my container. Digging into the logs I found the following output:
 
