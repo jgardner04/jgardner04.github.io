@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Debug Azure Functions Locally"
+title:  "Develop and Debug Azure Functions Locally"
 date:   2018-07-23 16:00:00
 categories: Technology
 tags: [Azure, Functions]
 author: Jonathan
 sharing:
-  twitter: Debug Azure Functions Locally with VSCode #Azure #Functions
-  linkedin: Debug Azure Functions Locally with VSCode
+  twitter: Develop and Debug Azure Functions Locally with VSCode #Azure #Functions
+  linkedin: Develop and Debug Azure Functions Locally with VSCode
 ---
 
 I have been working with [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) with my latest project. It took me some trial and error to get the tools working well for local development so I wanted to ensure to document and share them. In this post, I will cover two items: local debugging and bindings.
