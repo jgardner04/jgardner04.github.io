@@ -2,7 +2,7 @@
 layout: page
 title: Publications
 subtitle: I wrote stuff
-image: https://btco.azureedge.net/gallery/Headshot-Rounded.png
+image: /img/jonathan-avatar.png
 ---
 I have been asked you write posts for other publications and even a chapter in a technical book. You will will find excepts and links to those here.
 

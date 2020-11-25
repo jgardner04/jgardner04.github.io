@@ -2,7 +2,7 @@
 layout: about
 title: About me
 subtitle: Why you'd want to go on a date with me
-image: https://btco.azureedge.net/gallery/Headshot-Rounded.png
+image: /img/jonathan-avatar.png
 ---
 
 I am a Senior Program Manager at Microsoft working on the AzureCAT team. Before joining Microsoft, I spent 12 years working for Microsoft partners as a consultant working on a wide range of technologies from server virtualization to database administration. After seeing a significant shift to cloud based services, I knew it was time to join the best player in the space. Now I am working with our largest customers and partners to help shape the future of the cloud.
