@@ -28,11 +28,11 @@ navbar-links:
     - Speaking: "speaking"
     - Publication: "publication"
     - GitHub: "https://github.com/jgardner04"
-  Photography: "http://www.jonathanagardner.com"
+  Photography: "https://www.jonathanagardner.com"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: https://btco.azureedge.net/gallery-400/Headshot-Rounded.png
+avatar: ./img/jonathan-avatar.png
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
@@ -68,7 +68,7 @@ footer-links-active:
   facebook: true
   email: true
   twitter: true
-  google-plus: true
+  google-plus: false
   github: true
   reddit: true
   linkedin: true
@@ -77,7 +77,7 @@ footer-links-active:
   snapchat: false
   instagram: true
   youtube: true
-  spotify: true
+  spotify: false
   telephone: false
   steam: false
   twitch: false
@@ -87,7 +87,7 @@ footer-links-active:
 share-links-active:
   twitter: true
   facebook: true
-  google: true
+  google: false
   linkedin: true
 
 # How to display the link to the website in the footer
@@ -118,7 +118,7 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Chicago"
+timezone: "America/Los_Angeles"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
